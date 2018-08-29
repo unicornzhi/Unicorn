@@ -15,6 +15,22 @@ public class Caipu {
     private String c_step_image;
     private int u_id;
 
+    public Caipu(){
+
+    }
+
+    public Caipu(int c_id, String c_name, String c_made, String c_image, String c_step, Date c_createtime, int c_count, String c_step_image, int u_id) {
+        this.c_id = c_id;
+        this.c_name = c_name;
+        this.c_made = c_made;
+        this.c_image = c_image;
+        this.c_step = c_step;
+        this.c_createtime = c_createtime;
+        this.c_count = c_count;
+        this.c_step_image = c_step_image;
+        this.u_id = u_id;
+    }
+
     public int getC_id() {
         return c_id;
     }

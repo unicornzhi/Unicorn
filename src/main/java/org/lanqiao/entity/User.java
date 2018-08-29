@@ -18,6 +18,23 @@ public class User {
     private int u_phone;
     private String u_introduce;
 
+    public User(){}
+
+    public User(int u_id, String u_name, String u_password, String u_sex, Date u_birthday, String u_hometown, String u_nowlive, String u_job, String u_email, String u_image, int u_phone, String u_introduce) {
+        this.u_id = u_id;
+        this.u_name = u_name;
+        this.u_password = u_password;
+        this.u_sex = u_sex;
+        this.u_birthday = u_birthday;
+        this.u_hometown = u_hometown;
+        this.u_nowlive = u_nowlive;
+        this.u_job = u_job;
+        this.u_email = u_email;
+        this.u_image = u_image;
+        this.u_phone = u_phone;
+        this.u_introduce = u_introduce;
+    }
+
     public int getU_id() {
         return u_id;
     }

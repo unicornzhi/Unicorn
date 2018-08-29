@@ -9,7 +9,7 @@ import org.lanqiao.entity.Liuyan;
  */
 public interface LiuyanDao {
     //添加留言,同时用当前时间，获取l_id,存到前端评论的某个属性中，以便删用
-    public int  InsertLiuyan( Liuyan liuyan);
+    //public int  InsertLiuyan( Liuyan liuyan);
     //删除留言，根据添加时存的l_id来删除
-    public int DeleteLiuyan(Liuyan  liuyan );
+    //public int DeleteLiuyan(Liuyan  liuyan );
 }

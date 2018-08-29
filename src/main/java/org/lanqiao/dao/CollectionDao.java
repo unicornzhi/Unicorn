@@ -13,5 +13,5 @@ public interface CollectionDao {
      * @param c
      * @return
      */
-    public int addCollection(Collection c);
+    //public int addCollection(Collection c);
 }

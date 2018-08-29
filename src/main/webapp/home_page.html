@@ -7,10 +7,40 @@
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home_page.css">
+    <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css">
 
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/layer-master/dist/layer.js"></script>
     <script src="js/base.js"></script>
     <script src="js/home_page.js"></script>
+    <script>
+        $(function () {
+            $(".user-action a:eq(0)").click(function () {
+                layer.open({
+                    title:false,
+                    type: 2,
+                    closeBtn: 1, //不显示关闭按钮
+                    shade: [0],
+                    area: ['340px', '438px'],
+                    offset: 'auto',
+                    anim: 2,
+                    content: ['login.html', 'no'], //iframe的url，no代表不显示滚动条
+                });
+            });
+            $(".user-action a:eq(1)").click(function () {
+                layer.open({
+                    title:false,
+                    type: 2,
+                    closeBtn: 1, //不显示关闭按钮
+                    shade: [0],
+                    area: ['340px', '515px'],
+                    offset: 'auto',
+                    anim: 2,
+                    content: ['rigister.html', 'no'], //iframe的url，no代表不显示滚动条
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="topbar-outer has-bottom-border">
@@ -154,8 +184,8 @@
                     <div class="float-right clearfix">
 
                         <div class="user-action">
-                            <a href="/auth/login/" data-ga-event="公共页面/导航栏/$text" rel="nofollow">登录</a>
-                            <a href="/auth/apply/" data-ga-event="公共页面/导航栏/$text" rel="nofollow">注册</a>
+                            <a>登录</a>
+                            <a>注册</a>
                             <div class="user-nav" style="display: none" >
                                 <a class="user-avatar avatar" href="/cook/130169432/"
                                    data-ga-event="公共页面/导航栏/$text">
@@ -966,22 +996,22 @@
 
 
                             <a class="recipe-menu image-link has-border" href="/recipe_list/101408671/" title="有创意，才够味，家常菜什么的够了够了！" target="_blank" data-ga-event="首页/流行菜单/第0个" data-click-tracking-url="" data-expose-tracking-url="">
-                                <img class="recipe-menu-cover" src="http://i2.chuimg.com/c502b1d2884d11e6a9a10242ac110002_600w_431h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90" alt="有创意，才够味，家常菜什么的够了够了！的封面" width="300" height="140">
+                                <img class="recipe-menu-cover"  src="images/index/sm1.jpg" alt="有创意，才够味，家常菜什么的够了够了！的封面" width="300" height="140"/>
                                 <div class="recipe-menu-name ellipsis">有创意，才够味，家常菜什么的够了够了！</div>
                             </a>
 
                             <a class="recipe-menu image-link has-border" href="/recipe_list/103154336/" title="都可以吃的小零嘴" target="_blank" data-ga-event="首页/流行菜单/第1个" data-click-tracking-url="" data-expose-tracking-url="">
-                                <img class="recipe-menu-cover" src="http://i2.chuimg.com/80f20a648b6911e6a9a10242ac110002_1441w_1080h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90" alt="都可以吃的小零嘴的封面" width="300" height="140">
+                                <img class="recipe-menu-cover"  src="images/index/sm2.jpg" alt="有创意，才够味，家常菜什么的够了够了！的封面" width="300" height="140"/>
                                 <div class="recipe-menu-name ellipsis">都可以吃的小零嘴</div>
                             </a>
 
                             <a class="recipe-menu image-link has-border" href="/recipe_list/102602735/" title="肉" target="_blank" data-ga-event="首页/流行菜单/第2个" data-click-tracking-url="" data-expose-tracking-url="">
-                                <img class="recipe-menu-cover" src="http://i2.chuimg.com/2ec12de6895311e6a9a10242ac110002_607w_607h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90" alt="肉的封面" width="300" height="140">
+                                <img class="recipe-menu-cover"  src="images/index/sm3.jpg" alt="有创意，才够味，家常菜什么的够了够了！的封面" width="300" height="140"/>
                                 <div class="recipe-menu-name ellipsis">肉</div>
                             </a>
 
                             <a class="recipe-menu image-link has-border" href="/recipe_list/101412719/" title="死磕基础西点" target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url="" data-expose-tracking-url="">
-                                <img class="recipe-menu-cover" src="http://i2.chuimg.com/bc64290e8a7111e6b87c0242ac110003_2100w_1575h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90" alt="死磕基础西点的封面" width="300" height="140">
+                                <img class="recipe-menu-cover"  src="images/index/sm4.jpg" alt="有创意，才够味，家常菜什么的够了够了！的封面" width="300" height="140"/>
                                 <div class="recipe-menu-name ellipsis">死磕基础西点</div>
                             </a>
                         </div>

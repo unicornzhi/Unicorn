@@ -18,19 +18,19 @@ public interface CaipuDao {
      * @param u
      * @return
      */
-    public List<Caipu> findCaipu(User u);
+    //public List<Caipu> findCaipu(User u);
 
     /**
      * 增加菜谱(张敏)
      * @param cp
      * @return
      */
-    public int addCaipu(Caipu cp);
+   // public int addCaipu(Caipu cp);
     /**
      * 根据用户ID查询收藏菜谱(张敏)
      * @param uid
      * @return
      */
-    public List<Caipu> getCaipuCollectionById(int uid);
+    //public List<Caipu> getCaipuCollectionById(int uid);
 
 }

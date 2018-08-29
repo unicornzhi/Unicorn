@@ -7,6 +7,13 @@ public class Collection {
     private int u_id;
     private int c_id;
 
+    public  Collection(){}
+
+    public Collection(int u_id, int c_id) {
+        this.u_id = u_id;
+        this.c_id = c_id;
+    }
+
     public int getU_id() {
         return u_id;
     }

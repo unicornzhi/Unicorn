@@ -13,6 +13,18 @@ public class Dynamic {
     private int c_id;
     private int d_count;
 
+    public Dynamic(){}
+
+    public Dynamic(int d_id, String d_image, String d_xinde, Date d_createtime, int u_id, int c_id, int d_count) {
+        this.d_id = d_id;
+        this.d_image = d_image;
+        this.d_xinde = d_xinde;
+        this.d_createtime = d_createtime;
+        this.u_id = u_id;
+        this.c_id = c_id;
+        this.d_count = d_count;
+    }
+
     public int getD_id() {
         return d_id;
     }

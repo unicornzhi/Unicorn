@@ -11,6 +11,16 @@ public class Pinglun {
     private int d_id;
     private Date p_time;
 
+    public  Pinglun(){}
+
+    public Pinglun(int p_id, String p_content, int u_id, int d_id, Date p_time) {
+        this.p_id = p_id;
+        this.p_content = p_content;
+        this.u_id = u_id;
+        this.d_id = d_id;
+        this.p_time = p_time;
+    }
+
     public int getP_id() {
         return p_id;
     }

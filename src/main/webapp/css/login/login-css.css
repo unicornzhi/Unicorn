@@ -24,8 +24,8 @@ body {
     z-index: 99;
     text-align: center;
     background-image: url("../../images/login/img6.jpg");
-
-    background-size: 300px 500px;
+    /*background-color: rgba(0,0,0,0.8);*/
+    background-size: 340px 574px;
 }
 
 .l-top {

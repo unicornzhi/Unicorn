@@ -7,6 +7,13 @@ public class Attention {
     private int  u_id;
     private int o_id;
 
+    public Attention(){}
+
+    public Attention(int u_id, int o_id) {
+        this.u_id = u_id;
+        this.o_id = o_id;
+    }
+
     public int getU_id() {
         return u_id;
     }

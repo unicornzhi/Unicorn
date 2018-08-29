@@ -11,6 +11,16 @@ public class Liuyan {
     private int u_id;
     private int o_id;
 
+    public Liuyan(){}
+
+    public Liuyan(int l_id, Date l_time, String l_content, int u_id, int o_id) {
+        this.l_id = l_id;
+        this.l_time = l_time;
+        this.l_content = l_content;
+        this.u_id = u_id;
+        this.o_id = o_id;
+    }
+
     public int getL_id() {
         return l_id;
     }

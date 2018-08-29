@@ -10,6 +10,17 @@ public class Reply {
     private int o_id;
     private Date r_createTime;
 
+    public Reply(){}
+
+    public Reply(int r_id, String r_content, int p_id, int u_id, int o_id, Date r_createTime) {
+        this.r_id = r_id;
+        this.r_content = r_content;
+        this.p_id = p_id;
+        this.u_id = u_id;
+        this.o_id = o_id;
+        this.r_createTime = r_createTime;
+    }
+
     public int getR_id() {
         return r_id;
     }
