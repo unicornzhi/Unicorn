@@ -9,5 +9,8 @@
         <module name="stuProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="stuProject" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
