@@ -30,10 +30,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
 //        return 0;
 //    }
 //
-//    @Override
-//    public int insertUesrInfo(User u) {
-//        return 0;
-//    }
+    @Override
+    public int insertUesrInfo(User user) {
+        return executeUpdate("insert into User(u_name,u_phone,u_password) values(?,?,?)",new Object[]{user.getU_name(),user.getU_phone(),user.getU_password()});
+    }
 //
 //    @Override
 //    public List<User> showAllUserInfo(String sql) {

@@ -128,3 +128,6 @@ img {
     height: 500px;
 
 }
+button:hover {
+    cursor: pointer;
+}

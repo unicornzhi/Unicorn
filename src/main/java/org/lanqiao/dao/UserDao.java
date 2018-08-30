@@ -36,12 +36,13 @@ public interface UserDao {
 //     */
 //    public int deleteUserInfo(User u);
 //
-//    /**
-//     * 增加用户,在注册那里做就ok（王咸林）
-//     * @param u
-//     * @return
-//     */
-//    public int insertUesrInfo(User u);
+    /**
+     * 王筱萌
+     * 添加用户
+     * @param user
+     * @return
+     */
+    public int insertUesrInfo(User user);
 //
 //    /**
 //     * 显示所有用户	信息（分页）（王咸林）
