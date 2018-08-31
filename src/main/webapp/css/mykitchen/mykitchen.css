@@ -88,30 +88,28 @@
     color: #fff;
 
 }
-.no-1{
-    text-align: center;
-    display: none;
-}
+/*.no-1{*/
+    /*text-align: center;*/
+    /*!*display: none;*!*/
+/*}*/
+/*.block{*/
+    /*display: none;*/
+/*}*/
+/*.no-2{*/
+    /*display: none;*/
+    /*margin-bottom: 25px!important;*/
+/*}*/
+/*.no-3{*/
+    /*display: none;*/
+/*}*/
+/*.no-4{*/
+    /*display: none;*/
+/*}*/
 
-
-.block{
-    display: none;
-}
-.no-2{
-    display: none;
-    margin-bottom: 25px!important;
-}
-.no-3{
-    display: none;
-}
-.no-4{
-    display: none;
-}
-
-.no-5{
-    display: none;
-    width: 66.6667%;
-}
+/*.no-5{*/
+    /*display: none;*/
+    /*width: 66.6667%;*/
+/*}*/
 .caipu{
     color: #fff;
     background-color: #dd3915;
@@ -137,14 +135,14 @@
     width: 920px;
     height: 344px;
 }
-textarea{
-    border: 1px solid #f3f3f3;
-    padding: .5em;
-    width: 100%;
-    height: 300px;
-    resize: vertical;
-    overflow: auto;
-}
+/*textarea{*/
+    /*border: 1px solid #f3f3f3;*/
+    /*padding: .5em;*/
+    /*width: 100%;*/
+    /*height: 300px;*/
+    /*resize: vertical;*/
+    /*overflow: auto;*/
+/*}*/
 .mt10{
     border: 1px solid transparent;
     margin-top: 10px!important;
@@ -160,9 +158,9 @@ textarea{
     float: right;
     width: 12.5%;
 }
-.plain li{
-    float: left;
-}
+/*.plain li{*/
+    /*float: left;*/
+/*}*/
 .menu-list{
     height: 50px;
     /*padding-top: 110px;*/
@@ -172,9 +170,9 @@ textarea{
     width: 1000px;
     height: 30px;
 }
-.plain-1{
-    list-style: none;
-}
+/*.plain-1{*/
+    /*list-style: none;*/
+/*}*/
 .recipes{
     width: 1080px;
 

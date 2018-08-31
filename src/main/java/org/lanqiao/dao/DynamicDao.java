@@ -11,18 +11,16 @@ import java.util.List;
  */
 public interface DynamicDao {
     /**
-     * 发表动态（刘志辉）
-     * @param d
-     * @return
+     * 刘志辉
+     * 功能：发表动态
      */
-    //public int addDynamic(Dynamic d);
+    public  int createDynamic(Dynamic dynamic);
 
     /**
-     * 根据用户名查询作品所有信息(段)
-     * @param username
-     * @return
+     * 刘志辉
+     * 功能：查询动态所有记录的条数
      */
-    //public List<Dynamic> findDynamic(String username);
+    public  int getAllDynamicCount();
 
-   // public int updateDynamic(Dynamic d);//点赞，要先判断，根据文本内	容
+
 }

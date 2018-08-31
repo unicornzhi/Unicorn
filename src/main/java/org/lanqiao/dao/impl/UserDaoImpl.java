@@ -17,6 +17,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
         return listUser.get(0);
     }
 
+
+
+
+
     //    @Override
 //    public int updateUserInfo(User u, String colName) {
 //        return 0;
