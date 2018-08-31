@@ -33,4 +33,21 @@ public interface CaipuDao {
      */
     //public List<Caipu> getCaipuCollectionById(int uid);
 
+    /**
+     * 后台显示分页（王咸林）
+     * @param pageNum,pageSize
+     * @return
+     */
+    public List<Caipu> showCaipu(int pageNum,int pageSize);
+
+    /**
+     * 统计菜谱的总数量（王咸林）
+     * @param
+     * @return
+     */
+    public int getCaipuCount();
+
+
+
+
 }

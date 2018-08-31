@@ -3,44 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Title</title>
+    <title>首页</title>
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home_page.css">
     <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css">
 
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/layer-master/dist/layer.js"></script>
-    <script src="js/base.js"></script>
-    <script src="js/home_page.js"></script>
-    <script>
-        $(function () {
-            $(".user-action a:eq(0)").click(function () {
-                layer.open({
-                    title:false,
-                    type: 2,
-                    closeBtn: 1, //不显示关闭按钮
-                    shade: [0],
-                    area: ['340px', '438px'],
-                    offset: 'auto',
-                    anim: 2,
-                    content: ['login.html', 'no'], //iframe的url，no代表不显示滚动条
-                });
-            });
-            $(".user-action a:eq(1)").click(function () {
-                layer.open({
-                    title:false,
-                    type: 2,
-                    closeBtn: 1, //不显示关闭按钮
-                    shade: [0],
-                    area: ['340px', '515px'],
-                    offset: 'auto',
-                    anim: 2,
-                    content: ['rigister.html', 'no'], //iframe的url，no代表不显示滚动条
-                });
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="topbar-outer has-bottom-border">
@@ -184,8 +152,8 @@
                     <div class="float-right clearfix">
 
                         <div class="user-action">
-                            <a>登录</a>
-                            <a>注册</a>
+                            <a class="a-login">登录</a>
+                            <a class="a-login">注册</a>
                             <div class="user-nav" style="display: none" >
                                 <a class="user-avatar avatar" href="/cook/130169432/"
                                    data-ga-event="公共页面/导航栏/$text">
@@ -193,8 +161,8 @@
                                </a>
                                 <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;" >
                                     <ul class="plain">
-                                        <li><a href="" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
-                                        <li><a href=""
+                                        <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
+                                        <li><a href="Menu.html"
                                                data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
@@ -930,13 +898,14 @@
                         </div>
                     </div>
 
-                    <div class="login" >
+                    <div class="login">
                         <ul class="plain">
                             <li><a href="/social/?connect_type=qzone" class="button small-button"><i class="login-icon login-icon-qq" rel="nofollow"></i>QQ 登录</a></li>
                             <li><a href="/social/?connect_type=weibo" class="button small-button"><i class="login-icon login-icon-weibo" rel="nofollow"></i>微博登录</a></li>
                         </ul>
                         <a href="/auth/login/" rel="nofollow">手机/邮箱登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/auth/apply/" rel="nofollow">注册</a>
                     </div>
+
                     <div class="report-link">
                         <a href="http://report.12377.cn:13225/toreportinputNormal_anis.do?spm=a21bo.2017.0.0.5af911d92IZENm&amp;file=toreportinputNormal_anis.do" rel="nofollow" target="_blank">网上不良信息举报专区</a>
                     </div>
@@ -1257,8 +1226,9 @@
 
     </div>
 </div>
-
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/layer-master/dist/layer.js"></script>
+<script src="js/base.js"></script>
+<script src="js/home_page.js"></script>
 </body>
 </html>

@@ -25,4 +25,19 @@ public interface DynamicDao {
     //public List<Dynamic> findDynamic(String username);
 
    // public int updateDynamic(Dynamic d);//点赞，要先判断，根据文本内	容
+
+    /**
+     * 显示所有得动态（分页）
+     * @param  pageNum，pageSize
+     * @return List<Dynamic>
+     */
+    public List<Dynamic> showDynamic(int pageNum, int pageSize);
+
+    /**
+     * 统计动态的总数量（王咸林）
+     * @param
+     * @return
+     */
+    public int getDynamicCount();
+
 }

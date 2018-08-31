@@ -15,12 +15,12 @@ public class User {
     private String u_job;
     private String u_email;
     private String u_image;
-    private int u_phone;
+    private String u_phone;
     private String u_introduce;
 
     public User(){}
 
-    public User(int u_id, String u_name, String u_password, String u_sex, Date u_birthday, String u_hometown, String u_nowlive, String u_job, String u_email, String u_image, int u_phone, String u_introduce) {
+    public User(int u_id, String u_name, String u_password, String u_sex, Date u_birthday, String u_hometown, String u_nowlive, String u_job, String u_email, String u_image, String  u_phone, String u_introduce) {
         this.u_id = u_id;
         this.u_name = u_name;
         this.u_password = u_password;
@@ -115,11 +115,11 @@ public class User {
         this.u_image = u_image;
     }
 
-    public int getU_phone() {
+    public String getU_phone() {
         return u_phone;
     }
 
-    public void setU_phone(int u_phone) {
+    public void setU_phone(String  u_phone) {
         this.u_phone = u_phone;
     }
 

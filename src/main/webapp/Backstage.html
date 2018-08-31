@@ -8,9 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="css/layui.css" media="all">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/layui.js"></script>
-    <script src="js/Backstage.js"></script>
+    <style>
+        td{
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -40,16 +43,16 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item">
-                    <a class="" href="javascript:;">菜谱管理</a>
+                    <a class="caipu" href="javascript:;">菜谱管理</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">用户管理</a>
+                    <a  class="user" href="javascript:;">用户管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="">留言管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">动态管理</a>
+                    <a class="dynamic" href="javascript:;">动态管理</a>
                     <dl class="layui-nav-child">
                     <dd><a href="">评论管理</a></dd>
                     </dl>
@@ -72,188 +75,55 @@
             </div>
             <div class="layui-form" style="width:100%;height: 100%; overflow: auto;white-space: nowrap;">
                 <table class="layui-table">
-                    <thead>
-                    <tr>
-                        <th>姓名</th>
+                    <thead id="User" style="display: none">
+                        <tr>
                         <th>ID</th>
+                        <th>姓名</th>
                         <th>密码</th>
                         <th>性别</th>
                         <th>生日</th>
                         <th>籍贯</th>
                         <th>现住址</th>
-                        <th>工作</th>
+                        <th>职业</th>
                         <th>邮箱</th>
-                        <th>联系电话</th>
+                        <th>头像</th>
+                        <th>手机号码</th>
+                        <th>自我介绍</th>
                         <th>操作</th>
-                    </tr>
+                        </tr>
                     </thead>
+                    <thead id = "Caipu" style="display: none">
+                        <tr>
+                        <th>ID</th>
+                        <th>菜名</th>
+                        <th>材料</th>
+                        <th>图片</th>
+                        <th>制作步骤</th>
+                        <th>创建时间</th>
+                        <th>数量</th>
+                        <th>步骤图片</th>
+                        <th>用户ID</th>
+                        <th>菜品介绍</th>
+                        <th>操作</th>
+                        </tr>
+                    </thead>
+                    <thead  id="Dynamic" style="display: none">
+                        <tr>
+                        <th>动态ID</th>
+                        <th>动态图片</th>
+                        <th>动态信息</th>
+                        <th>动态数量</th>
+                        <th>用户ID</th>
+                        <th>菜谱ID</th>
+                        <th>动态数量</th>
+                        <th>操作</th>
+                        </tr>
+                    </thead>
+
                     <tbody>
+
                     <!--循环查出数据库里的用户显示-->
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" value="贤心" style="border: 0px;"></td>
-                        <td><input type="text" value="汉族" style="border: 0px;"></td>
-                        <td><input type="text" value="1989-10-14" style="border: 0px;"></td>
-                        <td><input type="text" value="人生似修行" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td><input type="text" value="111111111111" style="border: 0px;"></td>
-                        <td>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-                        </td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -292,13 +162,167 @@
         © 下厨吧 - 后台管理界面
     </div>
 </div>
-<script src="../src/layui.js"></script>
+<script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/Backstage.js" type="text/javascript"></script>
+<!--<script src="js/layui.js"></script>-->
 <script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
+    $(function () {
 
-    });
+
+        $("#User").show();
+        showUser();
+        $(".user").click(function () {
+            $("tbody").empty();
+            $("#Dynamic").hide();
+            $("#Caipu").hide();
+            $("#User").show();
+            showUser();
+        });
+
+        $(".caipu").click(function () {
+            $("tbody").empty();
+            $("#User").hide();
+            $("#Dynamic").hide();
+            $("#Caipu").show();
+            showCaipu();
+        });
+
+        $(".dynamic").click(function () {
+            $("tbody").empty();
+            $("#User").hide();
+            $("#Caipu").hide();
+            $("#Dynamic").show();
+            showDynamic();
+        })
+
+        // 删除用户信息的方法
+        deleteUser();
+
+        });
+
+
+    // 删除用户信息
+    function deleteUser() {
+        $("tbody").on("click","td a:nth-child(2)",function (event) {
+            var $id = $(this).closest("tr").children().children().val();
+            alert($id);
+            $.ajax({
+                    url: "/deleteUserInfoServlet",
+                    type: "post",
+                    data: {"userid": $id},
+                    dataType: "text",
+                    success: function (ret) {
+                        alert(ret);
+                        if (ret == 1) {
+                            alert("删除成功");
+                            location.reload();
+                        } else {
+                            alert("删除失败");
+                        }
+                    }
+            });
+        });
+    }
+
+    // 显示用户的信息
+    function showUser() {
+        $.ajax({
+            url: "/showAllUserInfoServlet",
+            type: "post",
+            data: {"num": 1},
+            dataType: "json",
+            success: function (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    var $node = $('<tr>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_name + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_password + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_sex + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_birthday + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_hometown + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_nowlive + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_job + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_email + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_image + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_phone + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_introduce + '" style="border: 0px;"></td>\n' +
+                        '                        <td>\n' +
+                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
+                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
+                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
+                        '                        </td>\n' +
+                        '                    </tr>');
+                    $("tbody").append($node);
+                }
+                ;
+            }
+        });
+    }
+
+    // 显示菜谱的信息
+    function showCaipu() {
+        $.ajax({
+            url: "/showCaipuServlet",
+            type: "post",
+            data: {"num": 1},
+            dataType: "json",
+            success: function (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    var $node = $('<tr>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_name + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_made + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_image + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_step + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_createtime + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_count + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_step_image + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_introduce + '" style="border: 0px;"></td>\n' +
+                        '                        <td>\n' +
+                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
+                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
+                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
+                        '                        </td>\n' +
+                        '                    </tr>');
+                    $("tbody").append($node);
+                }
+                ;
+            }
+        });
+    }
+
+    // 显示用户的动态
+    function showDynamic() {
+        $.ajax({
+            url: "/showDynamicServlet",
+            type: "post",
+            data: {"num": 1},
+            dataType: "json",
+            success: function (ret) {
+                for (var i = 0; i < ret.length; i++) {
+                    var $node = $('<tr>\n' +
+                        '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].d_image + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].d_xinde + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].d_createtime + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
+                        '                        <td>\n' +
+                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
+                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
+                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
+                        '                        </td>\n' +
+                        '                    </tr>');
+                    $("tbody").append($node);
+                }
+                ;
+            }
+        });
+    }
+
+
 </script>
 </body>
 </html>
