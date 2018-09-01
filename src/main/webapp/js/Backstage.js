@@ -1,0 +1,284 @@
+$(function () {
+    // 获取session的值
+    $.ajax({
+        url:"/GetSessionServlet",
+        data:{"userBean":"sessionkey"},
+        dataType:"json",
+        success:function (ret) {
+            if(ret==null){
+            }else{
+                var picurl = ret.u_image;
+                var username = ret.u_name;
+                $(".layui-nav-img").attr("src",picurl)
+                $(".layui-nav-img").next().html(username);
+            }
+        }
+    });
+
+    $("#User").show();
+    showUser();
+    $(".user").click(function () {
+        $("tbody").empty();
+        $("#Dynamic").hide();
+        $("#Caipu").hide();
+        $("#User").show();
+        showUser();
+    });
+
+    $(".caipu").click(function () {
+        $("tbody").empty();
+        $("#User").hide();
+        $("#Dynamic").hide();
+        $("#Caipu").show();
+        showCaipu();
+    });
+
+    $(".dynamic").click(function () {
+        $("tbody").empty();
+        $("#User").hide();
+        $("#Caipu").hide();
+        $("#Dynamic").show();
+        showDynamic();
+    });
+
+
+    addCaipu();
+
+    insertUser();
+    updateUser();
+
+
+    // 删除功能
+    deleteUser();
+    deleteCaipu();
+    deleteDynamic();
+
+
+
+});
+
+
+function addCaipu() {
+    $("tbody").on("click","a[name='添加菜谱']",function (event) {
+        layer.open({
+            title: false,
+            type: 2,
+            closeBtn: 1, //不显示关闭按钮
+            shade: [0],
+            area: ['320px','636px'],
+            // offset: 'auto',
+            anim: 1,
+            content: ['addCaipu.html', 'no'],
+        });
+    });
+}
+// 删除动态
+function deleteDynamic() {
+    $("tbody").on("click","a[name='删除动态']",function (event) {
+        var $id = $(this).closest("tr").children().children().val();
+        $.ajax({
+            url:"/deleteDynamicServlet",
+            data:{"did":$id},
+            dataType:"text",
+            success:function (ret) {
+                if(ret==1){
+                    alert("删除成功");
+                    window.parent.location.reload();
+                }else {
+                    alert(ret);
+                    alert("删除失败");
+                }
+            }
+
+        })
+    });
+}
+// 删除菜谱
+function deleteCaipu() {
+    $("tbody").on("click","a[name='删除菜谱']",function (event) {
+        var $id = $(this).closest("tr").children().children().val();
+        $.ajax({
+            url:"/deleteCaipuServlet",
+            data:{"cid":$id},
+            dataType:"text",
+            success:function (ret) {
+                if(ret==1){
+                    alert("删除成功");
+                    window.parent.location.reload();
+                }else {
+                    alert(ret);
+                    alert("删除失败");
+                }
+            }
+
+        })
+    });
+
+}
+// 显示菜谱的信息
+function showCaipu() {
+    $.ajax({
+        url: "/showCaipuServlet",
+        type: "post",
+        data: {"num": 1},
+        dataType: "json",
+        success: function (ret) {
+            for (var i = 0; i < ret.length; i++) {
+                var $node = $('<tr>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_name + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_made + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_image + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_step + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_createtime + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_count + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_step_image + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_introduce + '" style="border: 0px;"></td>\n' +
+                    '                        <td>\n' +
+                    '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" name="添加菜谱">添加</a>\n' +
+                    '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" name="删除菜谱">删除</a>\n' +
+                    '                        </td>\n' +
+                    '                    </tr>');
+                $("tbody").append($node);
+            }
+            ;
+        }
+    });
+}
+
+// 显示用户的动态
+function showDynamic() {
+    $.ajax({
+        url: "/showDynamicServlet",
+        type: "post",
+        data: {"num": 1},
+        dataType: "json",
+        success: function (ret) {
+            for (var i = 0; i < ret.length; i++) {
+                var $node = $('<tr>\n' +
+                    '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].d_image + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].d_xinde + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].d_createtime + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td>\n' +
+                    '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" name="删除动态">删除</a>\n' +
+                    '                        </td>\n' +
+                    '                    </tr>');
+                $("tbody").append($node);
+            }
+            ;
+        }
+    });
+}
+
+// 修改用户信息  未完成
+function updateUser() {
+    $("tbody").on("click","td a:nth-child(1)",function (event) {
+        var $name= $(this).closest("tr").children().children().eq(1).val();
+        var $password= $(this).closest("tr").children().children().eq(2).val();
+        var $sex= $(this).closest("tr").children().children().eq(3).val();
+        var $birthday= $(this).closest("tr").children().children().eq(4).val();
+        var $hometown= $(this).closest("tr").children().children().eq(5).val();
+        var $newlive= $(this).closest("tr").children().children().eq(6).val();
+        var $job= $(this).closest("tr").children().children().eq(7).val();
+        var $email= $(this).closest("tr").children().children().eq(8).val();
+        var $image= $(this).closest("tr").children().children().eq(9).val();
+        var $phone= $(this).closest("tr").children().children().eq(10).val();
+        var $introduce= $(this).closest("tr").children().children().eq(11).val();
+        $.ajax({
+            url:"/updateUserServlet",
+            data:{"name":$name,"password":$password,"sex":$sex,"birthday":$birthday,
+                "hometown":$hometown,"newlive":$newlive,"job":$job,"email":$email,"image":$image,"phone":$phone
+                ,"introduce":$introduce},
+            dataType:"text",
+            success:function (ret) {
+                if(ret==1){
+                    alert("修改完成");
+                }else{
+                    alert("修改失败");
+                }
+
+            }
+        })
+
+
+
+    });
+}
+
+// 增加用户
+function insertUser() {
+    $("tbody").on("click","a[name='添加用户']",function (event) {
+        layer.open({
+            title: false,
+            type: 2,
+            closeBtn: 1, //不显示关闭按钮
+            shade: [0],
+            area: ['260px','425px'],
+            // offset: 'auto',
+            anim: 1,
+            content: ['BackinsertUser.html', 'no'],
+        });
+    });
+}
+
+// 删除用户信息
+function deleteUser() {
+    $("tbody").on("click","a[name='删除用户']",function (event) {
+        var $id = $(this).closest("tr").children().children().val();
+        $.ajax({
+            url: "/deleteUserInfoServlet",
+            type: "post",
+            data: {"userid": $id},
+            dataType: "text",
+            success: function (ret) {
+                if (ret == 1) {
+                    layer.msg("删除成功",{time:1000});
+                    location.reload();
+                } else {
+                    alert("删除失败");
+                }
+            }
+        });
+    });
+}
+
+// 显示用户的信息
+function showUser() {
+    $.ajax({
+        url: "/showAllUserInfoServlet",
+        type: "post",
+        data: {"num": 1},
+        dataType: "json",
+        success: function (ret) {
+            for (var i = 0; i < ret.length; i++) {
+                var $node = $('<tr>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_name + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_password + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_sex + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_birthday + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_hometown + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_nowlive + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_job + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_email + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_image + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_phone + '" style="border: 0px;"></td>\n' +
+                    '                        <td><input type="text" value="' + ret[i].u_introduce + '" style="border: 0px;"></td>\n' +
+                    '                        <td>\n' +
+                    '                            <a class="layui-btn layui-btn-xs" lay-event="del" name="修改用户">修改</a>\n' +
+                    '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" name="删除用户">删除</a>\n' +
+                    '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del" name="添加用户">添加</a>\n' +
+                    '                        </td>\n' +
+                    '                    </tr>');
+                $("tbody").append($node);
+            }
+            ;
+        }
+    });
+}
+

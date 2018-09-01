@@ -8,10 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="css/layui.css" media="all">
+    <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css" media="all">
+
     <style>
-        td{
-            text-align: center;
-        }
     </style>
 
 </head>
@@ -27,14 +26,14 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="images/Backstage/头像.jpg" class="layui-nav-img">
-                    管理员01
+                    <i>a</i>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退出</a></li>
+            <li class="layui-nav-item"><a href="/removeLoginServlet">退出</a></li>
         </ul>
     </div>
 
@@ -119,11 +118,8 @@
                         <th>操作</th>
                         </tr>
                     </thead>
-
                     <tbody>
-
                     <!--循环查出数据库里的用户显示-->
-
                     </tbody>
                 </table>
             </div>
@@ -164,165 +160,7 @@
 </div>
 <script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/Backstage.js" type="text/javascript"></script>
-<!--<script src="js/layui.js"></script>-->
-<script>
-    $(function () {
+<script src="js/layer-master/dist/layer.js" type="text/javascript"></script>
 
-
-        $("#User").show();
-        showUser();
-        $(".user").click(function () {
-            $("tbody").empty();
-            $("#Dynamic").hide();
-            $("#Caipu").hide();
-            $("#User").show();
-            showUser();
-        });
-
-        $(".caipu").click(function () {
-            $("tbody").empty();
-            $("#User").hide();
-            $("#Dynamic").hide();
-            $("#Caipu").show();
-            showCaipu();
-        });
-
-        $(".dynamic").click(function () {
-            $("tbody").empty();
-            $("#User").hide();
-            $("#Caipu").hide();
-            $("#Dynamic").show();
-            showDynamic();
-        })
-
-        // 删除用户信息的方法
-        deleteUser();
-
-        });
-
-
-    // 删除用户信息
-    function deleteUser() {
-        $("tbody").on("click","td a:nth-child(2)",function (event) {
-            var $id = $(this).closest("tr").children().children().val();
-            alert($id);
-            $.ajax({
-                    url: "/deleteUserInfoServlet",
-                    type: "post",
-                    data: {"userid": $id},
-                    dataType: "text",
-                    success: function (ret) {
-                        alert(ret);
-                        if (ret == 1) {
-                            alert("删除成功");
-                            location.reload();
-                        } else {
-                            alert("删除失败");
-                        }
-                    }
-            });
-        });
-    }
-
-    // 显示用户的信息
-    function showUser() {
-        $.ajax({
-            url: "/showAllUserInfoServlet",
-            type: "post",
-            data: {"num": 1},
-            dataType: "json",
-            success: function (ret) {
-                for (var i = 0; i < ret.length; i++) {
-                    var $node = $('<tr>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_name + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_password + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_sex + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_birthday + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_hometown + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_nowlive + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_job + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_email + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_image + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_phone + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_introduce + '" style="border: 0px;"></td>\n' +
-                        '                        <td>\n' +
-                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
-                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
-                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
-                        '                        </td>\n' +
-                        '                    </tr>');
-                    $("tbody").append($node);
-                }
-                ;
-            }
-        });
-    }
-
-    // 显示菜谱的信息
-    function showCaipu() {
-        $.ajax({
-            url: "/showCaipuServlet",
-            type: "post",
-            data: {"num": 1},
-            dataType: "json",
-            success: function (ret) {
-                for (var i = 0; i < ret.length; i++) {
-                    var $node = $('<tr>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_name + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_made + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_image + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_step + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_createtime + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_count + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_step_image + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_introduce + '" style="border: 0px;"></td>\n' +
-                        '                        <td>\n' +
-                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
-                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
-                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
-                        '                        </td>\n' +
-                        '                    </tr>');
-                    $("tbody").append($node);
-                }
-                ;
-            }
-        });
-    }
-
-    // 显示用户的动态
-    function showDynamic() {
-        $.ajax({
-            url: "/showDynamicServlet",
-            type: "post",
-            data: {"num": 1},
-            dataType: "json",
-            success: function (ret) {
-                for (var i = 0; i < ret.length; i++) {
-                    var $node = $('<tr>\n' +
-                        '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].d_image + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].d_xinde + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].d_createtime + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].u_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].c_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td><input type="text" value="' + ret[i].d_id + '" style="border: 0px;"></td>\n' +
-                        '                        <td>\n' +
-                        '                            <a class="layui-btn layui-btn-xs" lay-event="del">修改</a>\n' +
-                        '                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n' +
-                        '                            <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="del">增加</a>\n' +
-                        '                        </td>\n' +
-                        '                    </tr>');
-                    $("tbody").append($node);
-                }
-                ;
-            }
-        });
-    }
-
-
-</script>
 </body>
 </html>

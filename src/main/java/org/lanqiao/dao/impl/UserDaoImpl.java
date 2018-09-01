@@ -19,10 +19,14 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
         return listUser.get(0);
     }
 
-    //    @Override
-//    public int updateUserInfo(User u, String colName) {
-//        return 0;
-//    }
+        @Override
+    public int updateUserInfo(User u) {
+        return executeUpdate("update User set u_name=?,u_password=?,u_sex=?,u_birthday=?" +
+                "u_hometown=?,u_nowlive=?,u_job=?,u_email=?,u_image=?,u_phone=?,u_introduce=? where u_id=?",new Object[]{
+                        u.getU_name(),u.getU_password(),u.getU_sex(),u.getU_birthday(),u.getU_hometown(),u.getU_nowlive(),
+                u.getU_job(),u.getU_email(),u.getU_image(),u.getU_phone(),u.getU_introduce(),u.getU_id()
+        });
+    }
 //    @Override
 //    public int updateUserInfo(ArrayList<String> colName, ArrayList<String> colValue, String u) {
 //        return 0;
@@ -32,10 +36,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
         return executeUpdate("delete from User where u_id = ?",new Object[]{u.getU_id()});
     }
 
-
-//    @Override
-//    public int insertUesrInfo(User u) {
-//    }
+    @Override
+    public int insertUesrInfo(User user) {
+        return executeUpdate("insert into User(u_name,u_phone,u_password) values(?,?,?)",new Object[]{user.getU_name(),user.getU_phone(),user.getU_password()});
+    }
 
     @Override
     public User checkLockUser(User u) {
@@ -65,9 +69,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
 //    }
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setU_id(4);
-        System.out.println(new UserDaoImpl().deleteUserInfo(user));
+
 
     }
 

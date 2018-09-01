@@ -15,6 +15,7 @@
         <form>
             <!--用户名-->
             <input class="inp" name="username" type="text" placeholder="请输入用户名">
+            <div></div>
             <!--手机号码-->
             <input class="inp" name="phone" type="text" placeholder="请输入手机号码">
             <!--密码-->
@@ -49,40 +50,8 @@
 </div>
 <script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/layer-master/dist/layer.js"></script>
-<script>
-    $(function () {
+<script src="js/login.js"></script>
 
-        // 登录
-        $("button").click(function () {
-            $.post("/checkLockServlet",{"username":$("input[name='username']").val(),
-                        "password":$("input[name='password']").val(),
-                        "phone":$("input[name='phone']").val()
-                },
-                function (ret) {
-                    if(ret){
-                        location.href="home_page.html";
-                    }else{
-                       alert("用户名或密码错误") ;
-                    }
-            },'json');
-        });
-        
-        // 点击注册
-        $(".l-footer a").click(function () {
-            layer.open({
-                title:false,
-                type: 2,
-                closeBtn: 0, //不显示关闭按钮
-                shade: [0],
-                area: ['340px', '535px'],
-                offset: 'auto',
-                anim: 2,
-                content: ['rigister.html', 'no']
-            });
-        });
-    });
-
-</script>
 
 </body>
 </html>

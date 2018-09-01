@@ -6,12 +6,6 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/workDynamicAll.css">
     <link rel="stylesheet" href="css/userModel.css">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/base.js"></script>
-
-    <script src="js/userModel.js"></script>
-    <script src="js/workDynamicAll.js"></script>
-
 </head>
 <body>
 <!--模态框-->
@@ -548,9 +542,10 @@
                         </ul>
                     </div>
                     <div class="float-right clearfix">
-
                         <div class="user-action">
-                            <div class="user-nav">
+                            <a class="a-login">登录</a>
+                            <a class="a-login">注册</a>
+                            <div class="user-nav" style="display: none">
                                 <a class="user-avatar avatar" href="/cook/130169432/"
                                    data-ga-event="公共页面/导航栏/$text">
                                     <img id="img1" src="images/img/1.png" alt="手机用户5710_l930的厨房" width="30" height="30"/>
@@ -561,11 +556,11 @@
                                         <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                         <li><a href="/account/basic/" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                         <li><a href="/find_friends/" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
-                                        <li><a href="/auth/logout/">退出</a></li>
+                                        <li><a href="/removeLoginServlet">退出</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <a class="user-collect" href="/cook/130169432/collected/" title="我的收藏">
+                            <a class="user-collect" href="/cook/130169432/collected/" title="我的收藏" style="display: none">
                                 <i class="icon"></i>
                             </a>
 
@@ -737,7 +732,10 @@
 
     </div>
 </div>
-
-
+<script src="js/jquery-2.1.4/jquery-2.1.4.js"></script>
+<script src="js/base.js"></script>
+<script src="js/userModel.js"></script>
+<script src="js/workDynamicAll.js"></script>
+<script src="js/layer-master/dist/layer.js"></script>
 </body>
 </html>

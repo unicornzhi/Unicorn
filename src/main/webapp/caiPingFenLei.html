@@ -6,13 +6,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/liu.css">
     <link rel="stylesheet" href="css/userModel.css">
-
-
-
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/base.js"></script>
-
-
+    <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css">
 </head>
 <body>
 <div class="topbar-outer has-bottom-border">
@@ -42,8 +36,9 @@
                         <ul class="site-nav plain pure-g">
                             <li class="pure-u"><a href="home_page.html" data-ga-event="公共页面/导航栏/$text">首页</a></li>
                             <li class="topbar-cats pure-u">
-                                <a href="caiPingFenLei.html" class="block-link" data-ga-event="公共页面/导航栏/$text"><span id="span1">菜谱分类</span></a>
-                                <div  class="topbar-cats-submenu hidden" style="display: none;">
+                                <a href="caiPingFenLei.html" class="block-link" data-ga-event="公共页面/导航栏/$text"><span
+                                        id="span1">菜谱分类</span></a>
+                                <div class="topbar-cats-submenu hidden" style="display: none;">
                                     <div class="topbar-cats-submenu-bg">
                                         <ul class="plain">
                                             <li class="topbar-cat-head">常用主题</li>
@@ -149,27 +144,29 @@
                         </ul>
                     </div>
                     <div class="float-right clearfix">
-
                         <div class="user-action">
-                            <div class="user-nav">
+                            <a class="a-login">登录</a>
+                            <a class="a-login">注册</a>
+                            <div class="user-nav" style="display: none">
                                 <a class="user-avatar avatar" href=""
                                    data-ga-event="公共页面/导航栏/$text">
-                                    <img id="img1" src="images/1.png" alt="手机用户5710_l930的厨房" width="30" height="30"/>
-                               </a>
-                                <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;" >
+                                    <img id="img1" src="images/index/1.png" alt="手机用户5710_l930的厨房" width="30"
+                                         height="30"/>
+                                </a>
+                                <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;">
                                     <ul class="plain">
                                         <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
-                                        <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
+                                        <li><a href="Menu.html"
+                                               data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
-                                        <li><a href="">退出</a></li>
+                                        <li><a href="/removeLoginServlet">退出</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <a class="user-collect" href="" title="我的收藏">
+                            <a class="user-collect" href="" title="我的收藏" style="display: none">
                                 <i class="icon"></i>
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -180,145 +177,145 @@
     </div>
 </div>
 <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<div  class="page-outer">
-<!--begin of page-container-->
-<div class="page-container">
+<div class="page-outer">
+    <!--begin of page-container-->
+    <div class="page-container">
 
 
-<div class="category-container plain">
+        <div class="category-container plain">
 
 
-<h1 class="page-title">分类浏览</h1>
-<div class="block-bg p40 font16">
+            <h1 class="page-title">分类浏览</h1>
+            <div class="block-bg p40 font16">
 
-<div class="cates-list clearfix has-bottom-border pb20 mb20">
+                <div class="cates-list clearfix has-bottom-border pb20 mb20">
 
-<div class="cates-list-info ml15 float-left">
-<h3 class="font20 m0" id="cat52320">热门专题</h3>
-</div>
+                    <div class="cates-list-info ml15 float-left">
+                        <h3 class="font20 m0" id="cat52320">热门专题</h3>
+                    </div>
 
-<div class="cates-list-mini clearfix ">
-<ul class="  clearfix">
-<li class="cates-list-first clearfix">
-特色食品
-<!--span>（23964）</span-->
-</li>
+                    <div class="cates-list-mini clearfix ">
+                        <ul class="  clearfix">
+                            <li class="cates-list-first clearfix">
+                                特色食品
+                                <!--span>（23964）</span-->
+                            </li>
 
-<li><a href="/category/40073/" target="_blank">小吃</a></li>
-<li><a href="/category/51276/" target="_blank">酱</a></li>
-<li><a href="/category/20167/" target="_blank">沙拉</a></li>
-<li><a href="/category/20137/" target="_blank">凉菜</a></li>
-</ul>
-<ul class="  clearfix">
-<li class="cates-list-first clearfix">
-特殊场合
-<!--span>（16519）</span-->
-</li>
+                            <li><a href="/category/40073/" target="_blank">小吃</a></li>
+                            <li><a href="/category/51276/" target="_blank">酱</a></li>
+                            <li><a href="/category/20167/" target="_blank">沙拉</a></li>
+                            <li><a href="/category/20137/" target="_blank">凉菜</a></li>
+                        </ul>
+                        <ul class="  clearfix">
+                            <li class="cates-list-first clearfix">
+                                特殊场合
+                                <!--span>（16519）</span-->
+                            </li>
 
-<li><a href="/category/40071/" target="_blank">早餐</a></li>
-<li><a href="/category/40072/" target="_blank">下午茶</a></li>
-<li><a href="/category/20171/" target="_blank">便当</a></li>
-<li><a href="/category/51971/" target="_blank">圣诞节</a></li>
-</ul>
-<ul class="cates-border-none  clearfix">
-<li class="cates-list-first clearfix">
-菜式
-<!--span>（33280）</span-->
-</li>
+                            <li><a href="/category/40071/" target="_blank">早餐</a></li>
+                            <li><a href="/category/40072/" target="_blank">下午茶</a></li>
+                            <li><a href="/category/20171/" target="_blank">便当</a></li>
+                            <li><a href="/category/51971/" target="_blank">圣诞节</a></li>
+                        </ul>
+                        <ul class="cates-border-none  clearfix">
+                            <li class="cates-list-first clearfix">
+                                菜式
+                                <!--span>（33280）</span-->
+                            </li>
 
-<li><a href="/category/40076/" target="_blank">家常菜</a></li>
-<li><a href="/category/40077/" target="_blank">快手菜</a></li>
-<li><a href="/category/40078/" target="_blank">下饭菜</a></li>
-<li><a href="/category/51848/" target="_blank">素菜</a></li>
-<li><a href="/category/52354/" target="_blank">大鱼大肉</a></li>
-<li><a href="/category/51743/" target="_blank">下酒菜</a></li>
-</ul>
-<ul class="cates-border-none cates-idx-2-5 clearfix">
-<li class="cates-list-first clearfix">
-功效
-<!--span>（3772）</span-->
-</li>
+                            <li><a href="/category/40076/" target="_blank">家常菜</a></li>
+                            <li><a href="/category/40077/" target="_blank">快手菜</a></li>
+                            <li><a href="/category/40078/" target="_blank">下饭菜</a></li>
+                            <li><a href="/category/51848/" target="_blank">素菜</a></li>
+                            <li><a href="/category/52354/" target="_blank">大鱼大肉</a></li>
+                            <li><a href="/category/51743/" target="_blank">下酒菜</a></li>
+                        </ul>
+                        <ul class="cates-border-none cates-idx-2-5 clearfix">
+                            <li class="cates-list-first clearfix">
+                                功效
+                                <!--span>（3772）</span-->
+                            </li>
 
-<li><a href="/category/30048/" target="_blank">减肥</a></li>
-<li><a href="/category/52138/" target="_blank">美容</a></li>
-<li><a href="/category/30053/" target="_blank">润肺抗燥</a></li>
-</ul>
-<ul class="cates-border-none cates-idx-2-5 clearfix">
-<li class="cates-list-first clearfix">
-人群
-<!--span>（2677）</span-->
-</li>
+                            <li><a href="/category/30048/" target="_blank">减肥</a></li>
+                            <li><a href="/category/52138/" target="_blank">美容</a></li>
+                            <li><a href="/category/30053/" target="_blank">润肺抗燥</a></li>
+                        </ul>
+                        <ul class="cates-border-none cates-idx-2-5 clearfix">
+                            <li class="cates-list-first clearfix">
+                                人群
+                                <!--span>（2677）</span-->
+                            </li>
 
-<li><a href="/category/30042/" target="_blank">儿童</a></li>
-<li><a href="/category/30044/" target="_blank">婴幼儿</a></li>
-<li><a href="/category/30043/" target="_blank">老人</a></li>
-</ul>
-<!--<div class="cates-list-more clearfix"><em class="cates-close-em">&nbsp;</em><a href="javascript:;" class="close">展开全部</a></div>-->
-</div>
+                            <li><a href="/category/30042/" target="_blank">儿童</a></li>
+                            <li><a href="/category/30044/" target="_blank">婴幼儿</a></li>
+                            <li><a href="/category/30043/" target="_blank">老人</a></li>
+                        </ul>
+                        <!--<div class="cates-list-more clearfix"><em class="cates-close-em">&nbsp;</em><a href="javascript:;" class="close">展开全部</a></div>-->
+                    </div>
 
-<div class="cates-list-all clearfix hidden">
-<h4 class="font16" id="cat52343">
-菜式
-</h4>
-<ul class=" has-bottom-border">
-<li id="cat40076"><a href="" target="_blank">家常菜</a>
-</li>
-<li id="cat40077"><a href="" target="_blank">快手菜</a>
-</li>
-<li id="cat40078"><a href="" target="_blank">下饭菜</a>
-</li>
-<li id="cat51848"><a href="" target="_blank">素菜</a>
-</li>
-<li id="cat52354"><a href="" target="_blank">大鱼大肉</a>
-</li>
-<li id="cat51743"><a href="" target="_blank">下酒菜</a>
-</li>
-<li id="cat52351"><a href="" target="_blank">小清新</a>
-</li>
-<li id="cat51940"><a href="" target="_blank">创意菜</a>
-</li>
-</ul>
-<h4 class="font16" id="cat52344">
-特色食品
-</h4>
-<ul class=" has-bottom-border">
-<li id="cat40073"><a href="" target="_blank">小吃</a>
-</li>
-<li id="cat51276"><a href="" target="_blank">酱</a>
-</li>
-<li id="cat20167"><a href="" target="_blank">沙拉</a>
-</li>
-<li id="cat20137"><a href="" target="_blank">凉菜</a>
-</li>
-<li id="cat40074"><a href="" target="_blank">零食</a>
-</li>
-<li class="cat20157"><a href="" target="_blank">三明治</a>
-</li>
-<li id="cat20152"><a href="" target="_blank">月饼</a>
-</li>
-<li id="cat52335"><a href="" target="_blank">蒸蛋</a>
-</li>
-<li id="cat20172"><a href="" target="_blank">寿司</a>
-</li>
-<li id="cat51870"><a href="" target="_blank">粽子</a>
-</li>
-<li id="cat1007463"><a href="" target="_blank">鸡蛋羹</a>
-</li>
-</ul>
-<h4 class="font16" id="cat52342">
-特殊场合
-</h4>
-<ul class=" has-bottom-border">
-<li id="cat40071"><a href="/category/40071/" target="_blank">早餐</a>
-</li>
-<li id="cat40072"><a href="/category/40072/" target="_blank">下午茶</a>
-</li>
-<li id="cat20171"><a href="/category/20171/" target="_blank">便当</a>
-</li>
-<li id="cat51971"><a href="/category/51971/" target="_blank">圣诞节</a>
-</li>
-<li id="cat40075"><a href="/category/40075/" target="_blank">年夜饭</a>
-</li>
+                    <div class="cates-list-all clearfix hidden">
+                        <h4 class="font16" id="cat52343">
+                            菜式
+                        </h4>
+                        <ul class=" has-bottom-border">
+                            <li id="cat40076"><a href="" target="_blank">家常菜</a>
+                            </li>
+                            <li id="cat40077"><a href="" target="_blank">快手菜</a>
+                            </li>
+                            <li id="cat40078"><a href="" target="_blank">下饭菜</a>
+                            </li>
+                            <li id="cat51848"><a href="" target="_blank">素菜</a>
+                            </li>
+                            <li id="cat52354"><a href="" target="_blank">大鱼大肉</a>
+                            </li>
+                            <li id="cat51743"><a href="" target="_blank">下酒菜</a>
+                            </li>
+                            <li id="cat52351"><a href="" target="_blank">小清新</a>
+                            </li>
+                            <li id="cat51940"><a href="" target="_blank">创意菜</a>
+                            </li>
+                        </ul>
+                        <h4 class="font16" id="cat52344">
+                            特色食品
+                        </h4>
+                        <ul class=" has-bottom-border">
+                            <li id="cat40073"><a href="" target="_blank">小吃</a>
+                            </li>
+                            <li id="cat51276"><a href="" target="_blank">酱</a>
+                            </li>
+                            <li id="cat20167"><a href="" target="_blank">沙拉</a>
+                            </li>
+                            <li id="cat20137"><a href="" target="_blank">凉菜</a>
+                            </li>
+                            <li id="cat40074"><a href="" target="_blank">零食</a>
+                            </li>
+                            <li class="cat20157"><a href="" target="_blank">三明治</a>
+                            </li>
+                            <li id="cat20152"><a href="" target="_blank">月饼</a>
+                            </li>
+                            <li id="cat52335"><a href="" target="_blank">蒸蛋</a>
+                            </li>
+                            <li id="cat20172"><a href="" target="_blank">寿司</a>
+                            </li>
+                            <li id="cat51870"><a href="" target="_blank">粽子</a>
+                            </li>
+                            <li id="cat1007463"><a href="" target="_blank">鸡蛋羹</a>
+                            </li>
+                        </ul>
+                        <h4 class="font16" id="cat52342">
+                            特殊场合
+                        </h4>
+                        <ul class=" has-bottom-border">
+                            <li id="cat40071"><a href="/category/40071/" target="_blank">早餐</a>
+                            </li>
+                            <li id="cat40072"><a href="/category/40072/" target="_blank">下午茶</a>
+                            </li>
+                            <li id="cat20171"><a href="/category/20171/" target="_blank">便当</a>
+                            </li>
+                            <li id="cat51971"><a href="/category/51971/" target="_blank">圣诞节</a>
+                            </li>
+                            <li id="cat40075"><a href="/category/40075/" target="_blank">年夜饭</a>
+                            </li>
                             <li id="cat52107"><a href="/category/52107/" target="_blank">深夜食堂</a>
                             </li>
                             <li id="cat51822"><a href="/category/51822/" target="_blank">情人节</a>
@@ -2469,5 +2466,10 @@
 
     </div>
 </div>
+
+<script src="js/jquery-2.1.4/jquery-2.1.4.js"></script>
+<script src="js/layer-master/dist/layer.js"></script>
+<script src="js/base.js"></script>
+<script src="js/caiPingFenLei.js"></script>
 </body>
 </html>

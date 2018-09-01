@@ -12,21 +12,30 @@ $(function () {
         $(".homepage-cat6 .homepage-cat-submenu").hide();
     })
 
+
+    // 获取session的值
     $.ajax({
         url:"/GetSessionServlet",
         data:{"userBean":"sessionkey"},
         dataType:"json",
         success:function (ret) {
             if(ret==null){
-                alert("没有获取到session的值")
             }else{
-                // 将注册和登录隐藏
                 var user = ret ;
-                loginAngRigister();
-                showIndexMessage(user);
+                if(user.u_id==0){
+                    location.href="Backstage.html"
+                }else{
+                    // 将注册和登录隐藏
+                    loginAngRigister();
+                    showIndexMessage(user);
+                }
+
+
+
             }
         }
     });
+
 
 
     function loginAngRigister() {
@@ -35,7 +44,6 @@ $(function () {
         $(".user-nav").attr("style","display:block");
         $(".user-collect").attr("style","display:block");
     }
-
      function showIndexMessage(user){
         // 先将之前的隐藏
          $(".login").css("display","none");
@@ -55,6 +63,7 @@ $(function () {
 
     // 点击登录，显示登录弹窗
     $(".user-action a:eq(0)").click(function () {
+
         layer.open({
             title:false,
             type: 2,
@@ -63,8 +72,9 @@ $(function () {
             area: ['340px', '494px'],
             offset: 'auto',
             anim: 2,
-            content: ['login.html', 'no'], //iframe的url，no代表不显示滚动条
+            content: ['login.html', 'no']
         });
+
     });
     // 点击注册，显示注册弹窗
     $(".user-action a:eq(1)").click(function () {

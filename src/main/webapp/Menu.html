@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>菜单</title>
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/步骤页.css">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/base.js"></script>
+    <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css">
 </head>
 <body>
 <div class="topbar-outer has-bottom-border">
@@ -143,26 +141,29 @@
                         </ul>
                     </div>
                     <div class="float-right clearfix">
-
                         <div class="user-action">
-                            <div class="user-nav">
-                                <a class="user-avatar avatar" href="" data-ga-event="公共页面/导航栏/$text">
-                                    <img id="img1" src="images/Menu/1.png" alt="手机用户5710_l930的厨房" width="30" height="30"/>
-                               </a>
-                                <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;" >
+                            <a class="a-login">登录</a>
+                            <a class="a-login">注册</a>
+                            <div class="user-nav" style="display: none">
+                                <a class="user-avatar avatar" href=""
+                                   data-ga-event="公共页面/导航栏/$text">
+                                    <img id="img1" src="images/index/1.png" alt="手机用户5710_l930的厨房" width="30"
+                                         height="30"/>
+                                </a>
+                                <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;">
                                     <ul class="plain">
                                         <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
-                                        <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
+                                        <li><a href="Menu.html"
+                                               data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
-                                        <li><a href="">退出</a></li>
+                                        <li><a href="/removeLoginServlet">退出</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <a class="user-collect" href="" title="我的收藏">
+                            <a class="user-collect" href="" title="我的收藏" style="display: none">
                                 <i class="icon"></i>
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -795,7 +796,10 @@
 
     </div>
 </div>
-
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/layer-master/dist/layer.js"></script>
+<script src="js/base.js"></script>
+<script src="js/Menu.js"></script>
 
 </body>
 </html>

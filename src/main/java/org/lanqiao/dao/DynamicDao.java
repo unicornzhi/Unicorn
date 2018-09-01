@@ -15,7 +15,7 @@ public interface DynamicDao {
      * @param d
      * @return
      */
-    //public int addDynamic(Dynamic d);
+    public int addDynamic(Dynamic d);
 
     /**
      * 根据用户名查询作品所有信息(段)
@@ -24,7 +24,12 @@ public interface DynamicDao {
      */
     //public List<Dynamic> findDynamic(String username);
 
-   // public int updateDynamic(Dynamic d);//点赞，要先判断，根据文本内	容
+    /**
+     * 更新用户的信息
+     * @param
+     * @return
+     */
+    public int updateDynamic(Dynamic d);//点赞，要先判断，根据文本内	容
 
     /**
      * 显示所有得动态（分页）
@@ -32,6 +37,16 @@ public interface DynamicDao {
      * @return List<Dynamic>
      */
     public List<Dynamic> showDynamic(int pageNum, int pageSize);
+
+
+
+    /**
+     * 删除动态
+     * @param d
+     * @return List<Dynamic>
+     */
+    public int deleteDynamic(Dynamic d);
+
 
     /**
      * 统计动态的总数量（王咸林）

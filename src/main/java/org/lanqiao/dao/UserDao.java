@@ -12,13 +12,13 @@ public interface UserDao {
      */
     public User  getUserImage(User u);
 
-//    /**
-//     * 修改用户信息（更新单列）（王咸林，段）
-//     * @param u
-//     * @param colName
-//     * @return
-//     */
-//    public int updateUserInfo(User u, String colName);
+    /**
+     * 修改用户信息（更新单列）（王咸林，段）
+     * @param u
+     * @param
+     * @return
+     */
+    public int updateUserInfo(User u);
 
 
     /**
@@ -28,12 +28,12 @@ public interface UserDao {
      */
     public int deleteUserInfo(User u);
 
-//    /**
-//     * 增加用户,在注册那里做就ok（王咸林）
-//     * @param u
-//     * @return
-//     */
-//    public int insertUesrInfo(User u);
+    /**
+     * 增加用户,在注册那里做就ok（王咸林）
+     * @param u
+     * @return
+     */
+    public int insertUesrInfo(User u);
 
     /**
      * 显示所有用户	信息（分页）（王咸林）

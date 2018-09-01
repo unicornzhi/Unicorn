@@ -25,7 +25,7 @@ public interface CaipuDao {
      * @param cp
      * @return
      */
-   // public int addCaipu(Caipu cp);
+    public int addCaipu(Caipu cp);
     /**
      * 根据用户ID查询收藏菜谱(张敏)
      * @param uid
@@ -47,7 +47,11 @@ public interface CaipuDao {
      */
     public int getCaipuCount();
 
-
-
+    /**
+     * 删除菜谱（王咸林）
+     * @param c
+     * @return
+     */
+    public int deleteCaipu(Caipu c);
 
 }
