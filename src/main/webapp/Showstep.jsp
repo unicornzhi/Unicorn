@@ -1,3 +1,10 @@
+<%@ page import="org.lanqiao.entity.Caipu" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,29 +185,15 @@
 
 <div class="page-outer">
     <div class="page-container">
-        <ol class="breadcrumb plain pl10">
-            <li itemprop="itemListElement" itemscope class="">
-                <a href="" title="首页">首页</a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope class="">
-                <a href="" title="面包">面包</a>
-                <meta itemprop="position" content="2">
-            </li>
-            <li itemprop="itemListElement" itemscope="" class="active">
-                <span>抹茶红豆牛奶哈斯面包</span>
-                <meta itemprop="position" content="3">
-            </li>
-        </ol>
         <div class="pure-g">
             <div class="pure-u-2-3 main-panel">
                 <div itemscope itemtype="">
-                    <h1 class="page-title" itemprop="name">抹茶红豆牛奶哈斯面包
+                    <h1 class="page-title" itemprop="name">${requestScope.Caipulist.get(0).c_name}
                     <i class="exclusive-icon"></i>
                     </h1>
                     <div class="block recipe-show">
                         <div class="cover image expandable block-negative-margin">
-                            <img src="images/Showstep/抹茶面包.png" itemprop="image" width="660">
+                            <img src="${requestScope.Caipulist.get(0).c_image}" itemprop="image" width="660">
                         </div>
                         <div class="container pos-r pb20 has-bottom-border">
                             <div class="stats clearfix">
@@ -222,55 +215,36 @@
                         <div class="rate-dialog block-negative-margin"></div>
                         <div class="author" itemprop="author" itemtype="">
                             <a href="" class="avatar-link avatar">
-                                <img src="images/Showstep/头像.jpg" width="60" height="60">
+                                <img src="images/Showstep/touxiang.jpg" width="60" height="60">
                                 &nbsp;<span itemprop="name">_慧绘美食记_</span>
                             </a>
                             <a href="" class="icon icon-cooker" rel="nofollow"></a>
                         </div>
                         <div class="desc mt30" itemprop="description">
-                            有颜值又美味的牛奶哈斯面包，这次加了抹茶粉和蜜红豆，做成了绿色版~ 抹茶红豆是绝配，味道搭配在一起非常棒，整形类似欧包，切开之后的横截面也很喜人~
+                            ${requestScope.Caipulist.get(0).c_introduce}
                         </div>
                         <h2>用料&nbsp;</h2>
                         <div class="ings">
                             <table>
                                 <tbody>
+                                <%
+                                  List<Caipu> list= (List<Caipu>) request.getAttribute("Caipulist");
+                                  String c_made=list.get(0).getC_made();
+                                  String[] str_made=c_made.split("\\|");//分隔符
+                                %>
+                                <%--豆腐 150g|鸡蛋 1个|虾皮 1把|芝士 适量|蚝油 半勺|葱花 少许|酱油 少许|盐、黑胡椒 适量--%>
                                 <!--循环获取完菜谱材料的次数-->
+                                <%for (int i=0;i<str_made.length;i++){
+                                        String[] str_made2=str_made[i].split(" ");
+                                %>
                                 <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
+                                    <td class="name"><a href="/category/2316/">
+                                        <%=str_made2[0]%>
+                                    </a></td>
+                                    <td class="unit"><%=str_made2[1]%>
+                                    </td>
                                 </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
-                                <tr itemprop="recipeIngredient">
-                                    <td class="name"><a href="/category/2316/">牛奶</a></td>
-                                    <td class="unit">190g</td>
-                                </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>
@@ -278,30 +252,41 @@
                         <div class="steps">
                             <!--有序列表-->
                             <ol>
+                                <%
+                                    List<Caipu> list1= (List<Caipu>) request.getAttribute("Caipulist");
+                                    String c_step=list1.get(0).getC_step();
+                                    String c_step_image=list1.get(0).getC_step_image();
+                                    String[] str_step=c_step.split("\\|");//分隔符
+                                    String[] str_image=c_step_image.split("\\|");//分隔符
+
+                                for (int i=0;i<str_step.length;i++){
+                                %>
                                 <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
+                                    <p class="text"><%=str_step[i]%></p>
+                                    <p></p>
+                                    <img src="<%=str_image[i]%>" width="300">
                                 </li>
-                                <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
-                                </li>
-                                <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
-                                </li>
-                                <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
-                                </li>
-                                <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
-                                </li>
-                                <li class="container">
-                                    <p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>
-                                    <img src="images/Showstep/步骤.jpg" width="300">
-                                </li>
+                                <%}%>
+                                <%--<li class="container">--%>
+                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
+                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
+                                <%--</li>--%>
+                                <%--<li class="container">--%>
+                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
+                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
+                                <%--</li>--%>
+                                <%--<li class="container">--%>
+                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
+                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
+                                <%--</li>--%>
+                                <%--<li class="container">--%>
+                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
+                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
+                                <%--</li>--%>
+                                <%--<li class="container">--%>
+                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
+                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
+                                <%--</li>--%>
                             </ol>
 
                                 <p class="links">
@@ -317,25 +302,25 @@
             <div class="ad">
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告01.jpg"></a>
+                        <a><img src="images/Showstep/guanggao1.jpg"></a>
                     </div>
                     <p>手撕面包加盟</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告02.jpg"></a>
+                        <a><img src="images/Showstep/guanggao2.jpg"></a>
                     </div>
                     <p>电饭锅做面包</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告03.jpg"></a>
+                        <a><img src="images/Showstep/guanggao3.jpg"></a>
                     </div>
                     <p>电饭锅做蛋糕</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告04.jpg"></a>
+                        <a><img src="images/Showstep/guanggao4.jpg"></a>
                     </div>
                     <p>飞利浦面条机</p>
                 </div>
@@ -343,25 +328,25 @@
             <div class="ad">
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告05.jpg"></a>
+                        <a><img src="images/Showstep/guanggao5.jpg"></a>
                     </div>
                     <p>专利申请</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告06.jpg"></a>
+                        <a><img src="images/Showstep/guanggao6.jpg"></a>
                     </div>
                     <p>如何做奶茶</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告07.jpg"></a>
+                        <a><img src="images/Showstep/guanggao7.jpg"></a>
                     </div>
                     <p>一点点奶茶加盟</p>
                 </div>
                 <div class="ad_item">
                     <div class="ad_img">
-                        <a><img src="images/Showstep/广告08.jpg"></a>
+                        <a><img src="images/Showstep/guanggao8.jpg"></a>
                     </div>
                     <p>豆芽机</p>
                 </div>
@@ -372,31 +357,31 @@
                 </div>
                 <div class="content">
                     <a href="" class="recipe-menu image-link has-border" title="" target="_blank">
-                        <img src="images/Showstep/家常菜.jpg" width="300" height="140">
+                        <img src="images/Showstep/jiachangcai.jpg" width="300" height="140">
                         <div class="recipe-menu-name ellipsis">家常菜</div>
                     </a>
                 </div>
                 <div class="content">
                     <a href="" class="recipe-menu image-link has-border" title="" target="_blank">
-                        <img src="images/Showstep/快手菜.jpg" width="300" height="140">
+                        <img src="images/Showstep/kuaishoucai.jpg" width="300" height="140">
                         <div class="recipe-menu-name ellipsis">快手菜</div>
                     </a>
                 </div>
                 <div class="content">
                     <a href="" class="recipe-menu image-link has-border" title="" target="_blank">
-                        <img src="images/Showstep/下饭菜.jpg" width="300" height="140">
+                        <img src="images/Showstep/xiafancai.jpg" width="300" height="140">
                         <div class="recipe-menu-name ellipsis">下饭菜</div>
                     </a>
                 </div>
                 <div class="content">
                     <a href="" class="recipe-menu image-link has-border" title="" target="_blank">
-                        <img src="images/Showstep/33小厨.jpg" width="300" height="140">
+                        <img src="images/Showstep/33xiaochu.jpg" width="300" height="140">
                         <div class="recipe-menu-name ellipsis">33小厨</div>
                     </a>
                 </div>
                 <div class="content">
                     <a href="" class="recipe-menu image-link has-border" title="" target="_blank">
-                        <img src="images/Showstep/创意菜.jpg" width="300" height="140">
+                        <img src="images/Showstep/chuangyicai.jpg" width="300" height="140">
                         <div class="recipe-menu-name ellipsis">创意菜</div>
                     </a>
                 </div>

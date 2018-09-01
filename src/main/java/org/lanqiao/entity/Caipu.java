@@ -13,10 +13,14 @@ public class Caipu {
     private Date c_createtime ;
     private int c_count ;
     private String c_step_image;
-    private int u_id;
     private String c_introduce;
+    private int u_id;
 
-    public Caipu(int c_id, String c_name, String c_made, String c_image, String c_step, Date c_createtime, int c_count, String c_step_image, int u_id, String c_introduce) {
+    public Caipu(){
+
+    }
+
+    public Caipu(int c_id, String c_name, String c_made, String c_image, String c_step, Date c_createtime, int c_count, String c_step_image, int u_id,String c_introduce) {
         this.c_id = c_id;
         this.c_name = c_name;
         this.c_made = c_made;
@@ -26,10 +30,7 @@ public class Caipu {
         this.c_count = c_count;
         this.c_step_image = c_step_image;
         this.u_id = u_id;
-        this.c_introduce = c_introduce;
-    }
-    public Caipu(){
-
+        this.c_introduce=c_introduce;
     }
 
     public String getC_introduce() {
