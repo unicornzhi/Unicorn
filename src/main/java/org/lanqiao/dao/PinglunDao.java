@@ -6,4 +6,6 @@ package org.lanqiao.dao;
  * @描述：PinglunDao接口
  */
 public interface PinglunDao {
+
+
 }

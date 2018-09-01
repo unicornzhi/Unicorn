@@ -1,4 +1,5 @@
 $(function () {
+
     $(".showModel").click(function () {
         $(".dish-popup").show();
         // 隐藏窗体的滚动条

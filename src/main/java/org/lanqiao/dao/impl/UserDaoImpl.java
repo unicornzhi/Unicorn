@@ -2,7 +2,7 @@ package org.lanqiao.dao.impl;
 import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.UserDao;
 import org.lanqiao.entity.User;
-import java.util.ArrayList;
+
 import java.util.List;
 public class UserDaoImpl extends BaseDao<User> implements UserDao  {
     /**
@@ -16,6 +16,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao  {
         List<User> listUser=executeQuery("select u_image from User where u_id=?",new Object[]{u.getU_id()});
         return listUser.get(0);
     }
+
+
+
+
 
     //    @Override
 //    public int updateUserInfo(User u, String colName) {
