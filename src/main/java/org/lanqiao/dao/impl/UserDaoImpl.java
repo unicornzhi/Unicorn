@@ -2,7 +2,7 @@ package org.lanqiao.dao.impl;
 import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.UserDao;
 import org.lanqiao.entity.User;
-import java.util.ArrayList;
+
 import java.util.List;
 public class UserDaoImpl extends BaseDao<User> implements UserDao  {
     /**

@@ -4,8 +4,6 @@ import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.DynamicDao;
 import org.lanqiao.entity.Dynamic;
 
-import java.util.List;
-
 public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
     /**
      * 刘志辉
@@ -23,7 +21,7 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
      * 功能：查询动态所有记录条数
      */
     public int getAllDynamicCount(){
-     return  getCount("select count(*) from Dynamic");
+     return  getRecordCount("select count(*) from Dynamic");
     }
 
 }

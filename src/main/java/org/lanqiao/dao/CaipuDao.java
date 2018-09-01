@@ -11,26 +11,21 @@ import java.util.List;
  * @描述：CaipuDao接口
  */
 public interface CaipuDao {
-    /**
-     * 导航栏查询(王筱萌）
-     * 根据用户名查询菜谱的id、封面和名字，用于菜谱显示。（段）
-     * 最近流行，最新创建（刘)
-     * @param u
-     * @return
-     */
-    //public List<Caipu> findCaipu(User u);
 
     /**
-     * 增加菜谱(张敏)
-     * @param cp
+     * 刘志辉
+     * 分页查询所有菜谱并根据条件(收藏量，时间)排序
      * @return
      */
-   // public int addCaipu(Caipu cp);
+    public List<Caipu> findAllCaipuAndSort(String field,int pageNumber,int pageSize );
+
     /**
-     * 根据用户ID查询收藏菜谱(张敏)
-     * @param uid
-     * @return
+     * 获取所有菜谱的记录数，分页用
+     * 刘志辉
      */
-    //public List<Caipu> getCaipuCollectionById(int uid);
+    public int getAllCaipuCount();
+
+
+
 
 }

@@ -2,8 +2,6 @@ package org.lanqiao.dao.impl;
 
 import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.DynamicAndUserDao;
-import org.lanqiao.dao.DynamicDao;
-import org.lanqiao.entity.Dynamic;
 import org.lanqiao.entity.DynamicAndUser;
 
 import java.util.List;
