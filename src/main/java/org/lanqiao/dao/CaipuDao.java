@@ -43,7 +43,6 @@ public interface CaipuDao {
      * @return
      */
     public List<Caipu> searchC_nameQuery(String keyword);
-//    public List<Caipu> searchAllInfoQuery(String c_name);
 
 
 

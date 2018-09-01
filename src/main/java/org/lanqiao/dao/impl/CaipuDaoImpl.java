@@ -47,4 +47,10 @@ public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
 
         return executeQuery(sql,list.toArray());
     }
+
+    public List<Caipu> searchC_nameQuery(String keyword) {
+        return executeQuery( "select c_name from Caipu where c_name like  \"%\"?\"%\" ",new Object[]{keyword});
+//        return executeQuery( "select c_name from Caipu where c_name like ?",new Object[]{"%"+keyword+"%"});
+    }
+
 }
