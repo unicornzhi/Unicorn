@@ -33,4 +33,22 @@ public interface CaipuDao {
      */
     //public List<Caipu> getCaipuCollectionById(int uid);
 
+
+    /**
+     * 导航栏查询
+     * 关键字模糊查询菜名
+     * 通过菜名精确查询
+     *王三芝
+     * @param c_name
+     * @return
+     */
+    public List<Caipu> searchC_nameQuery(String keyword);
+//    public List<Caipu> searchAllInfoQuery(String c_name);
+
+
+
+
+
+
+
 }
