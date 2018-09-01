@@ -25,6 +25,11 @@ public interface CaipuDao {
      */
     public int getAllCaipuCount();
 
+    /**
+     * 不确定条件查询数据
+     */
+    public List<Caipu> findCaipuByfield(Caipu cp);
+
 
 
 

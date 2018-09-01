@@ -4,6 +4,7 @@ import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.CaipuDao;
 import org.lanqiao.entity.Caipu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
@@ -30,5 +31,20 @@ public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
     public int getAllCaipuCount(){
          return getRecordCount("select count(*) from Caipu");
     }
+    @Override
+    public List<Caipu> findCaipuByfield(Caipu cp) {
+        String sql="select * from Caipu where 1=1";
+        List<Object> list =new ArrayList<Object>();
 
+        if(cp.getC_name()!=null && cp.getC_name()!=""){
+            sql+=" and c_name=? ";
+            list.add(cp.getC_name());
+        }
+        if(cp.getU_id()!=0){
+            sql+=" and u_id=? ";
+            list.add(cp.getU_id());
+        }
+
+        return executeQuery(sql,list.toArray());
+    }
 }
