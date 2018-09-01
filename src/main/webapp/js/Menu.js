@@ -157,7 +157,7 @@ $(function () {
             success:function (result) {
                 var array=random(9,0,result.length);
                 for (var i=0;i<array.length;i++) {
-                    var add="<a href='' class=\"recipe-menu image-link has-border\" title=\"\" target=\"_blank\">\n" +
+                    var add="<a href='getCaipuMessageServlet?c_name="+result[array[i]].c_name+"' class=\"recipe-menu image-link has-border\" title=\"\" target=\"_blank\">\n" +
                         "                            <img src="+result[array[i]].c_image+" class=\"recipe-menu-cover\" width=\"300\" height=\"140\">\n" +
                         "                            <div class=\"recipe-menu-name ellipsis\">"+result[array[i]].u_name+"</div>\n" +
                         "                        </a>"
