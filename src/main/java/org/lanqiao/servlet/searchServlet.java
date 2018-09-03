@@ -17,7 +17,7 @@ import java.util.List;
 public class searchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 //     获取数据
-                String keyword=request.getParameter("keyword");
+                String keyword=request.getParameter("c_name");
                 System.out.println(keyword);
                 //     调Dao的实现类
                 List<Caipu> list = new CaipuDaoImpl().searchC_nameQuery(keyword);

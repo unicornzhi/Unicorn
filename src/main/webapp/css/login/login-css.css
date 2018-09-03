@@ -19,13 +19,13 @@ body {
     border-radius: 4px;
     position: absolute;
     left: 53%;
-    top: 27%;
+    top: 29%;
     margin: -180px 0 0 -180px;
     z-index: 99;
     text-align: center;
     background-image: url("../../images/login/img6.jpg");
     /*background-color: rgba(0,0,0,0.8);*/
-    background-size: 340px 645px;
+    background-size: 340px 750px;
 }
 
 .l-top {

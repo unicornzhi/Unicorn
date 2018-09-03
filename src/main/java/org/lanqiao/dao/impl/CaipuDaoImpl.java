@@ -59,6 +59,14 @@ public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
     }
 
 
+    /**
+     * 导航栏查询
+     * 关键字模糊查询菜名
+     * 通过菜名精确查询
+     *王三芝
+     * @param
+     * @return
+     */
     public List<Caipu> searchC_nameQuery(String keyword) {
         return executeQuery( "select c_name from Caipu where c_name like  \"%\"?\"%\" ",new Object[]{keyword});
 //        return executeQuery( "select c_name from Caipu where c_name like ?",new Object[]{"%"+keyword+"%"});

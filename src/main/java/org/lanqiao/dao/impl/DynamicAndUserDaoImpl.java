@@ -14,6 +14,6 @@ public class DynamicAndUserDaoImpl extends BaseDao<DynamicAndUser> implements Dy
      */
     @Override
     public List<DynamicAndUser> findAllDynamicAndUser() {
-        return executeQuery("select d_image,d_xinde,d_createtime,Dynamic.u_id,c_id,d_count,u_name,u_image from Dynamic,User where Dynamic.u_id=`User`.u_id");
+        return executeQuery("select d_id,d_image,d_xinde,d_createtime,Dynamic.u_id,c_id,d_count,u_name,u_image from Dynamic,User where Dynamic.u_id=`User`.u_id");
     }
 }

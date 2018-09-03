@@ -16,28 +16,27 @@ $(function () {
     });
     // 点击登录，显示登录弹窗
     $(".user-action a:eq(0)").click(function () {
-        alert("登录");
+
         layer.open({
             title:false,
             type: 2,
             closeBtn: 1, //不显示关闭按钮
             shade: [0],
-            area: ['340px', '494px'],
+            area: ['340px', '590px'],
             offset: 'auto',
             anim: 2,
             content: ['login.html', 'no']
         });
 
     });
-    // 点击注册，显示注册弹窗
+// 点击注册，显示注册弹窗
     $(".user-action a:eq(1)").click(function () {
-       alert("zhuce ");
         layer.open({
             title:false,
             type: 2,
             closeBtn: 1, //不显示关闭按钮
             shade: [0],
-            area: ['340px', '574px'],
+            area: ['340px', '550px'],
             offset: 'auto',
             anim: 2,
             content: ['rigister.html', 'no'], //iframe的url，no代表不显示滚动条

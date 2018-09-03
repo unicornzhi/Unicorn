@@ -8,7 +8,69 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home_page.css">
     <link rel="stylesheet" href="js/layer-master/dist/theme/default/layer.css">
+    <script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
 
+    <script>
+    $("input[name='c_name']").keyup(function () {
+    $.ajax({
+    url:"/SearchC_name",
+    data:{"c_name":$("input[name='c_name']").val()},
+    dataType:"json",
+    type:"post",
+    success:function (result) {
+    // console.log(result); //控制台输出json对象，用于调试
+    $("#search_show").html("");
+
+    for( var i=0;i<result.length;i++){
+    var $node=$('<p>'+result[i].c_name+'</p>');
+    $("#search_show").append($node);
+    // $("#search_show  p").html($("#search_show  p").html()+result[i].c_name);
+    // $("#search_show ul").html($("#search_show ul").html()+result[i].c_name+"<br>");
+    }
+    $("#search_show").show();
+    if($("#search_show p").text()!="" ){
+    $("#search_show p").mouseover(function () {
+    // alert($(this).text());
+    $("input[name='c_name']").val( $(this).text());
+    });
+    $("#search_show p").click(function () {
+    $("#search_show").hide();
+    });
+    }
+    }
+
+    })
+
+
+    });
+    </script>
+    <style>
+        #search_show{
+            /*background-image: url("../images/index/search.jpg");*/
+            width: 300px;
+            height: 201px;
+            border-left:  1px #bbbdff solid;;
+            border-bottom: 1px #bbbdff solid;;
+            border-right: 1px #bbbdff solid;
+            background-color: #ffffff;
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 6%;
+            left: 617px;
+            float: left;
+            overflow-y: hidden;
+        }
+        #search_show  p{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #search_show p:hover{
+            background-color: #cecece;
+        }
+    </style>
+    <script src="js/layer-master/dist/layer.js"></script>
 </head>
 <body>
 <div class="topbar-outer has-bottom-border">
@@ -152,18 +214,18 @@
                     <div class="float-right clearfix">
 
                         <div class="user-action">
-                            <a class="a-login">登录</a>
-                            <a class="a-login">注册</a>
-                            <div class="user-nav" style="display: none">
-                                <a class="user-avatar avatar" href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">
+                            <a class="login">登录</a>
+                            <a class="login">注册</a>
+                            <div class="user-nav" style="display: none" >
+                                <a class="user-avatar avatar" href="/cook/130169432/"
+                                   data-ga-event="公共页面/导航栏/$text">
                                     <img id="img1" src="images/index/1.png" alt="手机用户5710_l930的厨房" width="30" height="30"/>
                                </a>
                                 <div class="user-nav-submenu hidden" style="position: absolute;top: 30px;" >
                                     <ul class="plain">
                                         <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的厨房</a></li>
-                                        <li><a href="mykitchen.html"
-                                               data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
-                                        <li><a href="setPersonalInfo.html" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
+                                        <li><a href="mykitchen.html" data-ga-event="公共页面/导航栏/$text">我的菜单</a></li>
+                                        <li><a href="" data-ga-event="公共页面/导航栏/$text">帐号设置</a></li>
                                         <li><a href="" data-ga-event="公共页面/导航栏/$text">发现好友</a></li>
                                         <li><a href="/removeLoginServlet">退出</a></li>
                                     </ul>
@@ -546,29 +608,34 @@
                                  <div id="new_show">
                                 <div class="new_show new_show_1">
                                     <div class="new_img">
+                                        <a href='getCaipuMessageServlet?c_name=三汁酱爆北极贝' title="三汁酱爆北极贝">
                                         <img src="images/index/new_show1.jpg" height="90" width="150"/>
+                                        </a>
                                     </div>
                                     <div class="new_show_n">
                                         <!------------------------------------------------------------>
-                                        <a href='Showstep.html?c_name=三汁酱爆北极贝' title="三汁酱爆北极贝">三汁酱爆北极贝</a>
+                                        <a href='getCaipuMessageServlet?c_name=三汁酱爆北极贝' title="三汁酱爆北极贝">三汁酱爆北极贝</a>
                                     </div>
 
                                 </div>
                                 <div class="new_show new_show_2">
                                     <div class="new_img">
-                                        <img src="images/index/new_show2.jpg" height="90" width="150"/>
+                                        <a href='getCaipuMessageServlet?c_name=清蒸火腿' title="清蒸火腿">
+                                            <img src="images/index/new_show2.jpg" height="90" width="150"/>
+                                        </a>
                                     </div>
                                     <div class="new_show_n">
-                                        <a href="" title="清蒸火腿">清蒸火腿</a>
+                                        <a href='getCaipuMessageServlet?c_name=清蒸火腿' title="清蒸火腿">清蒸火腿</a>
                                     </div>
 
                                 </div>
                                 <div class="new_show new_show_3">
                                     <div class="new_img">
-                                        <img src="images/index/new_show3.jpg" height="90" width="150"/>
-                                    </div>
+                                        <a href='getCaipuMessageServlet?c_name=清蒸花蟹' title="清蒸花蟹">
+                                            <img src="images/index/new_show3.jpg" height="90" width="150"/>
+                                        </a>                                    </div>
                                     <div class="new_show_n">
-                                        <a href="" title="清蒸花蟹">清蒸花蟹</a>
+                                        <a href='getCaipuMessageServlet?c_name=清蒸花蟹' title="清蒸花蟹">清蒸花蟹</a>
                                     </div>
 
                                 </div>
@@ -586,19 +653,22 @@
                                 <div class="fashion_show1">
                                     <div class="fa_show">
                                         <div class="fa_img">
-
-                                            <img src="images/index/fa_show1.jpg" height="138" width="235"/>
+                                            <a href='getCaipuMessageServlet?c_name=夏日里酸辣的凉拌黄瓜' title="夏日里酸辣的凉拌黄瓜">
+                                                <img src="images/index/fa_show1.jpg" height="138" width="239"/>
+                                            </a>
                                         </div>
                                         <div class="fa_show_n">
-                                             <a href="" title="夏日里酸辣的凉拌黄瓜">夏日里酸辣的凉拌黄瓜</a>
+                                            <a href='getCaipuMessageServlet?c_name=夏日里酸辣的凉拌黄瓜' title="夏日里酸辣的凉拌黄瓜">夏日里酸辣的凉拌黄瓜</a>
                                         </div>
                                     </div>
                                     <div class="fa_show">
                                         <div class="fa_img">
-                                            <img src="images/index/fa_show2.jpg" height="138" width="235"/>
+                                            <a href='getCaipuMessageServlet?c_name=美味豆腐饼' title="美味豆腐饼">
+                                                <img src="images/index/fa_show2.jpg" height="138" width="239"/>
+                                            </a>
                                         </div>
                                         <div class="fa_show_n">
-                                            <a href="" title="美味豆腐饼">美味豆腐饼</a>
+                                            <a href='getCaipuMessageServlet?c_name=美味豆腐饼' title="美味豆腐饼">美味豆腐饼</a>
                                         </div>
                                     </div>
 
@@ -606,19 +676,21 @@
                                 <div class="fashion_show1">
                                     <div class="fa_show">
                                         <div class="fa_img">
-<!------------------------------------------------------------------------------>
-                                            <img src="images/index/img_1.jpg" height="138" width="235"/>
+                                       <a href='getCaipuMessageServlet?c_name=纸杯蛋糕' title="纸杯蛋糕">
+                                            <img src="images/index/img_1.jpg" height="138" width="239"/>
+                                        </a>
                                         </div>
                                         <div class="fa_show_n">
-                                            <a href="Showstep.html？c_name=纸杯蛋糕" title="纸杯蛋糕">纸杯蛋糕</a>
+                                            <a href='getCaipuMessageServlet?c_name=纸杯蛋糕' title="纸杯蛋糕">纸杯蛋糕</a>
                                         </div>
                                     </div>
                                     <div class="fa_show">
                                         <div class="fa_img">
-                                            <img src="images/index/img_2.jpg" height="138" width="235"/>
+                                            <a href='getCaipuMessageServlet?c_name=老北京小吊梨汤' title="老北京小吊梨汤">
+                                                <img src="images/index/img_2.jpg" height="138" width="235"/></a>
                                         </div>
                                         <div class="fa_show_n">
-                                            <a href="Showstep.html？c_name=老北京小吊梨汤" title="老北京小吊梨汤">老北京小吊梨汤</a>
+                                            <a href="getCaipuMessageServlet?c_name=老北京小吊梨汤" title="老北京小吊梨汤">老北京小吊梨汤</a>
                                         </div>
                                     </div>
 
@@ -847,7 +919,7 @@
                                             <div class="pure-u">
                                                 <img src="images/index/sa6.jpg" data-src="http://i1.chuimg.com/4211b274232e11e7bc9d0242ac110002_1280w_1280h.jpg@2o_50sh_1pr_1l_280w_280h_1c_1e_90q_1wh" alt="海参蒸蛋——非常适合孩子和老人吃哦" width="80" height="80" class="unveiled">
                                             </div>
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <a href="/event/100032642/" class="link-layer"></a>
@@ -897,18 +969,17 @@
                             <a href="/cook/130185905/recipe_draft/">草稿箱</a>
                         </div>
                         <div class="action">
-                            <a href="" class="button">创建菜谱</a>
+                            <a href="/recipe/create/" class="button">创建菜谱</a>
                         </div>
                     </div>
 
-                    <div class="login">
+                    <div class="login" >
                         <ul class="plain">
-                            <li><a href="/social/?connect_type=qzone" class="button small-button"><i class="login-icon login-icon-qq" rel="nofollow"></i>QQ 登录</a></li>
-                            <li><a href="/social/?connect_type=weibo" class="button small-button"><i class="login-icon login-icon-weibo" rel="nofollow"></i>微博登录</a></li>
+                            <li><a href="/social/?connect_type=qzone" class="button small-button"><i class="login-icon login-icon-qq" rel="nofollow"></i> 登录</a></li>
+                            <li><a href="/social/?connect_type=weibo" class="button small-button"><i class="login-icon login-icon-weibo" rel="nofollow"></i>注册</a></li>
                         </ul>
-                        <a href="/auth/login/" rel="nofollow">手机/邮箱登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="rigister.html" rel="nofollow">注册</a>
+                        <a href="/auth/login/" rel="nofollow">手机/邮箱登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/auth/apply/" rel="nofollow">注册</a>
                     </div>
-
                     <div class="report-link">
                         <a href="http://report.12377.cn:13225/toreportinputNormal_anis.do?spm=a21bo.2017.0.0.5af911d92IZENm&amp;file=toreportinputNormal_anis.do" rel="nofollow" target="_blank">网上不良信息举报专区</a>
                     </div>
@@ -1165,12 +1236,6 @@
 </div>
 
 
-
-
-
-
-
-
 <!--======================================================================================================================================================  -->
 <div class="footer-outer">
     <div class="footer-container">
@@ -1202,11 +1267,11 @@
             <div class="pure-u-1-4 align-right">
                 <div class="social-likes">
                     <a href="" target="_blank" rel="nofollow">
-                        <img src="https://s.chuimg.com/simpleicons/sinaweibo.svg" alt="微博" title="微博">
+                        <!--<img src="https://s.chuimg.com/simpleicons/sinaweibo.svg" alt="微博" title="微博">-->
                     </a>
                     &nbsp;
                     <a href="" target="_blank" rel="nofollow">
-                        <img src="https://s.chuimg.com/simpleicons/twitter.svg" alt="Twitter" title="Twitter">
+                        <!--<img src="https://s.chuimg.com/simpleicons/twitter.svg" alt="Twitter" title="Twitter">-->
                     </a>
                 </div>
             </div>
@@ -1229,8 +1294,7 @@
 
     </div>
 </div>
-<script src="js/jquery-2.1.4/jquery-2.1.4.js" type="text/javascript"></script>
-<script src="js/layer-master/dist/layer.js"></script>
+<!--<script src="js/layer-master/dist/layer.js"></script>-->
 <script src="js/base.js"></script>
 <script src="js/home_page.js"></script>
 </body>

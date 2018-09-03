@@ -112,8 +112,6 @@ $.ajax({
                 showIndexMessage(user);
             }
 
-
-
         }
     }
 });
@@ -146,7 +144,7 @@ $(".user-action a:eq(0)").click(function () {
         type: 2,
         closeBtn: 1, //不显示关闭按钮
         shade: [0],
-        area: ['340px', '555px'],
+        area: ['340px', '590px'],
         offset: 'auto',
         anim: 2,
         content: ['login.html', 'no']
@@ -178,11 +176,22 @@ function changeImg() {
     i++;
     $(".point-list-s ul li").eq(i).css("background", "#adadad");
     $(".point-list-s ul li").eq(i).siblings().css("background", "#ffffff");
-    $("#lb_show img").attr("src",imgs[i]);
-    if(i==5){
-        i=-1;
+    $("#lb_show img").attr("src", imgs[i]);
+    if (i == 5) {
+        i = -1;
     }
+    // var i = 0;
+    // var imgs = new Array("images/index/lunbo_show1.jpg", "images/index/lunbo_show2.jpg", "images/index/lunbo_show3.jpg", "images/index/lunbo_show4.jpg", "images/index/lunbo_show5.jpg");
+    //
+    // function changeImg() {
+    //     i++;
+    //     $(".point-list-s ul li").eq(i).css("background", "#adadad");
+    //     $(".point-list-s ul li").eq(i).siblings().css("background", "#ffffff");
+    //     $("#lb_show img").attr("src", imgs[i]);
+    //     if (i == 5) {
+    //         i = -1;
+    //     }
 
-    setTimeout("changeImg()",1500) ;
+    setTimeout("changeImg()", 1500);
+//}
 }
-

@@ -78,12 +78,8 @@ $(function () {
     findUserById();
     findCaiPuById();
     findDynamicByid()
-    // 添加菜谱
-    addCaipu();
     // 添加用户
     insertUser();
-    // 修改用户信息  未完成
-    updateUser();
     // 删除功能
     deleteUser();
     deleteCaipu();
@@ -95,6 +91,7 @@ $(function () {
             ++CurrentUserNum;
         }else{
             CurrentUserNum=maxUserpage;
+            layer.msg("已经是最后一页了",{time:3000});
         }
         $("tbody").empty();
         showUser();
@@ -106,6 +103,7 @@ $(function () {
             ++CurrentCaipuNum;
         }else{
             CurrentCaipuNum=maxCaipupage;
+            layer.msg("已经是最后一页了",{time:3000});
         }
         $("tbody").empty();
         showCaipu();
@@ -116,6 +114,7 @@ $(function () {
             ++CurrentDynamic;
         }else{
             CurrentDynamic=maxDynamicpage;
+            layer.msg("已经是最后一页了",{time:3000});
         }
         $("tbody").empty();
         showDynamic();
@@ -125,7 +124,7 @@ $(function () {
     $("a[name='Userprev']").click(function () {
         if(CurrentUserNum==1){
             CurrentUserNum=CurrentUserNum;
-            alert("已经是第一页了")
+            layer.msg("已经是第一页了",{time:3000});
         }else {
             CurrentUserNum--;
         }
@@ -136,7 +135,7 @@ $(function () {
 
         if(CurrentCaipuNum==1){
             CurrentCaipuNum=CurrentCaipuNum;
-            alert("已经是第一页了")
+            layer.msg("已经是第一页了",{time:3000});
         }else {
             CurrentCaipuNum--;
         }
@@ -144,10 +143,9 @@ $(function () {
         showCaipu();
     });
     $("a[name='Dynamicprev']").click(function () {
-        alert("a");
         if(CurrentDynamic==1){
             CurrentDynamic=CurrentDynamic;
-            alert("已经是第一页了")
+            layer.msg("已经是第一页了",{time:3000});
         }else {
             CurrentDynamic--;
         }
@@ -159,7 +157,6 @@ $(function () {
 
 function findDynamicByid() {
     $("button[name='搜索动态']").click(function () {
-        alert("动态");
         $.ajax({
             url:"/findDynamicByIdServlet",
             data:{"id":$("input[name='dynamic']").val()},
@@ -205,7 +202,6 @@ function  findUserById() {
             data:{"id":$("input[name='user']").val()},
             dataType:"json",
             success:function (ret) {
-                alert(ret[0].u_id);
                 if(ret.length==0){
                 }else{
                     $("#Dynamic").hide();
@@ -358,39 +354,36 @@ function showDynamicx(ret) {
     ;
 }
 // 修改用户信息  未完成
-function updateUser() {
-    $("tbody").on("click","td a:nth-child(1)",function (event) {
-        var $name= $(this).closest("tr").children().children().eq(1).val();
-        var $password= $(this).closest("tr").children().children().eq(2).val();
-        var $sex= $(this).closest("tr").children().children().eq(3).val();
-        var $birthday= $(this).closest("tr").children().children().eq(4).val();
-        var $hometown= $(this).closest("tr").children().children().eq(5).val();
-        var $newlive= $(this).closest("tr").children().children().eq(6).val();
-        var $job= $(this).closest("tr").children().children().eq(7).val();
-        var $email= $(this).closest("tr").children().children().eq(8).val();
-        var $image= $(this).closest("tr").children().children().eq(9).val();
-        var $phone= $(this).closest("tr").children().children().eq(10).val();
-        var $introduce= $(this).closest("tr").children().children().eq(11).val();
-        $.ajax({
-            url:"/updateUserServlet",
-            data:{"name":$name,"password":$password,"sex":$sex,"birthday":$birthday,
-                "hometown":$hometown,"newlive":$newlive,"job":$job,"email":$email,"image":$image,"phone":$phone
-                ,"introduce":$introduce},
-            dataType:"text",
-            success:function (ret) {
-                if(ret==1){
-                    alert("修改完成");
-                }else{
-                    alert("修改失败");
-                }
-
-            }
-        })
-
-
-
-    });
-}
+// function updateUser() {
+//     $("tbody").on("click","td a:nth-child(1)",function (event) {
+//         var $name= $(this).closest("tr").children().children().eq(1).val();
+//         var $password= $(this).closest("tr").children().children().eq(2).val();
+//         var $sex= $(this).closest("tr").children().children().eq(3).val();
+//         var $birthday= $(this).closest("tr").children().children().eq(4).val();
+//         var $hometown= $(this).closest("tr").children().children().eq(5).val();
+//         var $newlive= $(this).closest("tr").children().children().eq(6).val();
+//         var $job= $(this).closest("tr").children().children().eq(7).val();
+//         var $email= $(this).closest("tr").children().children().eq(8).val();
+//         var $image= $(this).closest("tr").children().children().eq(9).val();
+//         var $phone= $(this).closest("tr").children().children().eq(10).val();
+//         var $introduce= $(this).closest("tr").children().children().eq(11).val();
+//         $.ajax({
+//             url:"/updateUserServlet",
+//             data:{"name":$name,"password":$password,"sex":$sex,"birthday":$birthday,
+//                 "hometown":$hometown,"newlive":$newlive,"job":$job,"email":$email,"image":$image,"phone":$phone
+//                 ,"introduce":$introduce},
+//             dataType:"text",
+//             success:function (ret) {
+//                 if(ret==1){
+//                     alert("修改完成");
+//                 }else{
+//                     alert("修改失败");
+//                 }
+//
+//             }
+//         })
+//     });
+// }
 // 增加用户
 function insertUser() {
     $("tbody").on("click","a[name='添加用户']",function (event) {
@@ -434,7 +427,6 @@ function showUser() {
         data: {"num": CurrentUserNum},
         dataType: "json",
         success: function (ret) {
-            layer.load("1");
             pageSumUser=ret[ret.length-1];
             for (var i = 0; i < ret.length-1; i++) {
                 var $node = $('<tr>\n' +

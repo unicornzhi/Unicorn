@@ -14,11 +14,11 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
      * @param dynamic
      * @return
      */
-//    @Override
-//    public int createDynamic(Dynamic dynamic){
-//        return    executeUpdate("insert into Dynamic(d_image,d_xinde,u_id,c_id) VALUES(?,?,?,?)",
-//                    new Object[]{dynamic.getD_image(),dynamic.getD_xinde(),dynamic.getU_id(),dynamic.getC_id()});
-//    }
+    @Override
+    public int createDynamic(Dynamic dynamic){
+        return    executeUpdate("insert into Dynamic(d_image,d_xinde,u_id,c_id) VALUES(?,?,?,?)",
+                    new Object[]{dynamic.getD_image(),dynamic.getD_xinde(),dynamic.getU_id(),dynamic.getC_id()});
+    }
     /**
      * 刘志辉
      * 功能：查询动态所有记录条数
@@ -53,7 +53,7 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
 
     @Override
     public int deleteDynamic(Dynamic d) {
-        return 0;
+        return executeUpdate("delete from Dynamic where d_id=?",new Object[]{d.getD_id()});
     }
 
     @Override
@@ -62,10 +62,5 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
     }
 
 
-//    public static void main(String[] args) {
-//        Dynamic d = new Dynamic();
-//        d.setD_id(1);
-//        DynamicDaoImpl dynamicDao = new DynamicDaoImpl();
-//        System.out.println(dynamicDao.findUserById(d).size());
-//    }
+
 }

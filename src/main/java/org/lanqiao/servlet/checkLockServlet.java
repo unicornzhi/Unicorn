@@ -23,7 +23,7 @@ public class checkLockServlet extends HttpServlet {
         user.setU_password(password);
 
         //3.dao
-        User retUser = new UserDaoImpl().checkLockUser(user);
+        User retUser = new UserDaoImpl().checkLockUser(user);//用户所有属性
 
         if(retUser!=null){
             request.getSession().setAttribute("sessionkey",retUser);

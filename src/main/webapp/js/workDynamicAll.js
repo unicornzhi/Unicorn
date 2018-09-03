@@ -23,8 +23,10 @@ $(function () {
         $(".dish-popup").hide();
         //显示窗体的滚动条
         $("body").css({ "overflow": "visible" });
-    });
+    })
     var nameArray =new Array();
+
+
 //显示所有动态
 //     $("#li2").click(function () {
         $(".show-list").remove();
@@ -72,11 +74,74 @@ $(function () {
                     $(".cate").after(add);
                 }
                 $(".buttons").css("clear", "both");
+
+
             },
             error: function () {
 
             }
         })
+    // })
+
+    //发表评论，插入评论数据
+    $(".mt10").click(function () {
+        var p_time=getNowTime();
+        var d_id=$(this).parent().parent().parent().prev().prev().children().children().prop("id");
+        $.ajax({
+            url: "/addPinglunServlet",
+            data:{"p_content":$(this).prev().prev().val(),"d_id":d_id},
+            type: "post",
+            dataType:"json",
+            success:function (result) {
+                if(result=="1"){
+                    findCurrentPinglun(d_id,p_time);
+                }
+            },
+            error:function () {
+            }
+        });
+
+    })
+
+    function findCurrentPinglun(d_id,p_time){
+        $.ajax({
+            url: "/findPinglunServlet",
+            data:{"d_id":d_id,"p_time":p_time},
+            type: "post",
+            dataType:"json",
+            success:function (result) {
+                var add=$("<li>\n" +
+                    "                        <div class=\"avatar-right-2\" role=\"comment\" data-target-url=\"/dish/143461175/comments/\" data-target-id=\"143461175\" data-comment-id=\"139412720\" data-author-name=\"阳阳爱妈妈妈妈爱阳阳\" data-author-id=\"126359651\">\n" +
+                    "                            <div class=\"left\">\n" +
+                    "                                <a class=\"image-link\">\n" +
+                    "                                    <img src='" + result[0].u_image + "' height=\"60\" width=\"60\" class=\"unveiled\">\n" +
+                    "                                </a>\n" +
+                    "                            </div>\n" +
+                    "                            <div class=\"right-top info\">\n" +
+                    "                                <a class=\"normal-font\">"+ result[0].u_name +"</a>\n" +
+                    "                                <span class=\"normal-font gray-font align-baseline\">\n" +
+                    "            "+ result[0].u_nowlive +" |\n" +
+                    "            &nbsp; "+p_time+" |\n" +
+                    "              <a class=\"gray-link\" rel=\"nofollow\">回复</a>\n" +
+                    "          </span>\n" +
+                    "                            </div>\n" +
+                    "                            <div class=\"right-bottom\">\n" +
+                    "                         "+result[0].p_content+"       😄\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                    </li>");
+
+                $("#pinglunUl").append(add);
+
+            },
+            error:function () {
+                alert("findCurrentPonglun failed!!");
+            }
+        });
+    }
+
+
+
 
 // 刘志辉  end
 // ====================================================================
@@ -95,29 +160,27 @@ $(function () {
     });
     // 点击登录，显示登录弹窗
     $(".user-action a:eq(0)").click(function () {
-        alert("登录");
+
         layer.open({
             title:false,
             type: 2,
             closeBtn: 1, //不显示关闭按钮
             shade: [0],
-            area: ['340px', '494px'],
+            area: ['340px', '590px'],
             offset: 'auto',
             anim: 2,
             content: ['login.html', 'no']
         });
 
     });
-
-    // 点击注册，显示注册弹窗
+// 点击注册，显示注册弹窗
     $(".user-action a:eq(1)").click(function () {
-        alert("zhuce ");
         layer.open({
             title:false,
             type: 2,
             closeBtn: 1, //不显示关闭按钮
             shade: [0],
-            area: ['340px', '574px'],
+            area: ['340px', '550px'],
             offset: 'auto',
             anim: 2,
             content: ['rigister.html', 'no'], //iframe的url，no代表不显示滚动条
@@ -133,4 +196,18 @@ function loginAngRigister() {
     // 显示用户头像和收藏
     $(".user-nav").attr("style","display:block");
     $(".user-collect").attr("style","display:block");
+}
+
+
+//获取当前时间的方法
+function getNowTime() {
+    var d = new Date();
+    var vYear = d.getFullYear();
+    var vMon = d.getMonth() + 1;
+    var vDay = d.getDate();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var se = d.getSeconds();
+    s=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay)+" "+(h<10 ? "0"+ h : h)+":"+(m<10 ? "0" + m : m)+":"+(se<10 ? "0" +se : se);
+    return s;
 }

@@ -19,6 +19,17 @@ public interface DynamicDao {
     public int addDynamic(Dynamic d);
 
     /**
+     * 刘志辉
+     * 功能：查询动态所有记录条数
+     */
+    public int getAllDynamicCount();
+    /**
+     * 刘志辉
+     * 功能：添加动态
+     */
+    public int createDynamic(Dynamic dynamic);
+
+    /**
      * 根据用户名查询作品所有信息(段)
      * @param username
      * @return

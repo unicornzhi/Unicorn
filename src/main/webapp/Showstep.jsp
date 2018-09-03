@@ -41,9 +41,9 @@
                     </div>
                     <div class="float-left">
                         <ul class="site-nav plain pure-g">
-                            <li class="pure-u"><a href="" data-ga-event="公共页面/导航栏/$text">首页</a></li>
+                            <li class="pure-u"><a href="home_page.html" data-ga-event="公共页面/导航栏/$text">首页</a></li>
                             <li class="topbar-cats pure-u">
-                                <a href="" class="block-link" data-ga-event="公共页面/导航栏/$text"><span id="span1">菜谱分类</span></a>
+                                <a href="caiPingFenLei.html" class="block-link" data-ga-event="公共页面/导航栏/$text"><span id="span1">菜谱分类</span></a>
                                 <div  class="topbar-cats-submenu hidden" style="display: none;">
                                     <div class="topbar-cats-submenu-bg">
                                         <ul class="plain">
@@ -143,9 +143,9 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="pure-u"><a href="" data-ga-event="公共页面/导航栏/$text">菜单</a>
+                            <li class="pure-u"><a href="Menu.html" data-ga-event="公共页面/导航栏/$text">菜单</a>
                             </li>
-                            <li class="pure-u"><a href="" data-ga-event="公共页面/导航栏/$text"
+                            <li class="pure-u"><a href="workDynamicAll.html" data-ga-event="公共页面/导航栏/$text"
                                                   rel="nofollow">作品动态</a></li>
                         </ul>
                     </div>
@@ -235,6 +235,7 @@
                                 <%--豆腐 150g|鸡蛋 1个|虾皮 1把|芝士 适量|蚝油 半勺|葱花 少许|酱油 少许|盐、黑胡椒 适量--%>
                                 <!--循环获取完菜谱材料的次数-->
                                 <%for (int i=0;i<str_made.length;i++){
+                                    if(str_made[i].split(" ").length==2){
                                         String[] str_made2=str_made[i].split(" ");
                                 %>
                                 <tr itemprop="recipeIngredient">
@@ -244,7 +245,18 @@
                                     <td class="unit"><%=str_made2[1]%>
                                     </td>
                                 </tr>
-                                <%}%>
+                                <%}
+
+                                else{%>
+                                <tr itemprop="recipeIngredient">
+                                    <td class="name"><a href="/category/2316/">
+                                        <%=str_made[i]%>
+                                    </a></td>
+                                    <td class="unit">
+                                    </td>
+                                </tr>
+                                <%}}%>
+
                                 </tbody>
                             </table>
                         </div>
@@ -267,26 +279,7 @@
                                     <img src="<%=str_image[i]%>" width="300">
                                 </li>
                                 <%}%>
-                                <%--<li class="container">--%>
-                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
-                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
-                                <%--</li>--%>
-                                <%--<li class="container">--%>
-                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
-                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
-                                <%--</li>--%>
-                                <%--<li class="container">--%>
-                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
-                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
-                                <%--</li>--%>
-                                <%--<li class="container">--%>
-                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
-                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
-                                <%--</li>--%>
-                                <%--<li class="container">--%>
-                                    <%--<p class="text">把主食材中除黄油外的所有食材按照底层液体、中层粉类、上层干酵母的顺序，全部放入厨师机桶里。</p>--%>
-                                    <%--<img src="images/Showstep/step.jpg" width="300">--%>
-                                <%--</li>--%>
+
                             </ol>
 
                                 <p class="links">

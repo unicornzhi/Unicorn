@@ -26,13 +26,13 @@
         <!--主体-->
         <div class="dish-show block block-has-padding white-bg">
             <div class="dish-cover block-negative-margin">
-                <img src="" height="450" width="600" class="w100"/></div>
+                <img id="img66" src="" height="450" width="600" class="w100"/></div>
             <div class="pure-g dish-info">
                 <div class="pure-u">
                     <div class="pure-g">
                         <div class="pure-u">
                             <a class="image-link" >
-                                <img src="userImages/userImage3.jpg" width="48" height="48" class="align-middle"/></a>
+                                <img  src="userImages/userImage3.jpg" width="48" height="48" class="align-middle"/></a>
                         </div>
                         <div class="pure-u dish-user-info">
                             <div class="gray-font">
@@ -100,12 +100,12 @@
 
         <!--评论-->
         <div class="block block-has-padding dish-comment-block comments-block white-bg">
-            <div class="title-bar">
-                <div class="title n-replies" data-n-replies="10">10 回应</div>
-            </div>
+            <!--<div class="title-bar">-->
+                <!--<div class="title n-replies" data-n-replies="10">10 回应</div>-->
+            <!--</div>-->
             <div class="content">
 
-                <ul class="plain list comment-list">
+                <ul id="pinglunUl" class="plain list comment-list">
                     <!--评论-->
                     <li>
                         <div class="avatar-right-2" role="comment" data-target-url="/dish/143461175/comments/" data-target-id="143461175" data-comment-id="139412720" data-author-name="阳阳爱妈妈妈妈爱阳阳" data-author-id="126359651">
@@ -127,58 +127,6 @@
                             </div>
                         </div>
                     </li>
-
-                    <li>
-                        <div class="avatar-right-2" role="comment" data-target-url="/dish/143461175/comments/" data-target-id="143461175" data-comment-id="139413037" data-author-name="水晶宝贝" data-author-id="10480712">
-                            <div class="left">
-                                <a  class="image-link">
-                                    <img src="userImages/userImage2.jpg" height="60" width="60" class="unveiled"/>                                </a>
-                            </div>
-                            <div class="right-top info">
-                                <a  class="normal-font">水晶宝贝</a>
-                                <span class="normal-font gray-font align-baseline">
-
-            通化 |
-            &nbsp;19小时前 |
-
-
-              <a  class="gray-link" rel="nofollow">回复</a>
-          </span>
-                            </div>
-                            <div class="right-bottom">
-                                各种羡慕啊😍😍
-                            </div>
-                        </div>
-                    </li>
-
-
-
-                    <li>
-                        <div class="avatar-right-2" role="comment" data-target-url="/dish/143461175/comments/" data-target-id="143461175" data-comment-id="139413307" data-author-name="有你就安" data-author-id="110068655">
-                            <div class="left">
-                                <a  class="image-link">
-                                    <img src="userImages/userImage2.jpg" height="60" width="60" class="unveiled"/>                                </a>
-
-                                </a>
-                            </div>
-                            <div class="right-top info">
-                                <a  class="normal-font">有你就安</a>
-                                <span class="normal-font gray-font align-baseline">
-
-            无锡 |
-            &nbsp;19小时前 |
-
-
-              <a  class="gray-link" rel="nofollow">回复</a>
-          </span>
-                            </div>
-                            <div class="right-bottom">
-                                好诱人啊😍
-                            </div>
-                        </div>
-                    </li>
-
-
                     <!--评论-->
                 </ul>
 
@@ -193,11 +141,11 @@
                 <!--没登录时的-->
 
                 <!--登陆时的-->
-                <form id="post_reply" method="POST" action="/dish/143461175/">
+                <div id="post_reply"  >
                     <textarea class="reply" name="reply" rows="8" placeholder="用&quot;:&quot;+拼音，看看你能打出什么"></textarea><br>
-                    <input type="submit" class="button mt10" value="发 言">
+                    <input type="button" class="button mt10" value="发 言">
                     <input type="hidden" name="xf" value="rsZd4">
-                </form>
+                </div>
                 <!--登陆时的-->
 
 
