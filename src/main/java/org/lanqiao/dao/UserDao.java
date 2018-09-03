@@ -50,6 +50,13 @@ public interface UserDao {
 //     */
 //    public User findUser(User u);
 
+    /**
+     * 用过用户的id查找到用户的信息
+     * @param
+     * @return
+     */
+    public List<User> findUserById(User u);
+
 
     /**
      * 登录验证

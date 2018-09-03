@@ -3,6 +3,7 @@ package org.lanqiao.dao.impl;
 import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.CaipuDao;
 import org.lanqiao.entity.Caipu;
+import org.lanqiao.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,9 @@ public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
     public int getAllCaipuCount(){
          return getRecordCount("select count(*) from Caipu");
     }
-    @Override
+
+
+     @Override
     public List<Caipu> findCaipuByfield(Caipu cp) {
         String sql="select * from Caipu where 1=1";
         List<Object> list =new ArrayList<Object>();
@@ -48,9 +51,45 @@ public class CaipuDaoImpl extends BaseDao<Caipu> implements CaipuDao {
         return executeQuery(sql,list.toArray());
     }
 
+
+//    数据库菜谱的删除
+    @Override
+    public int deleteCaipu(Caipu caipu) {
+        return executeUpdate("delete from  Caipu where c_id=?",new Object[]{caipu.getC_id()});
+    }
+
+
     public List<Caipu> searchC_nameQuery(String keyword) {
         return executeQuery( "select c_name from Caipu where c_name like  \"%\"?\"%\" ",new Object[]{keyword});
 //        return executeQuery( "select c_name from Caipu where c_name like ?",new Object[]{"%"+keyword+"%"});
     }
+
+    @Override
+    public int addCaipu(Caipu cp) {
+        return executeUpdate("insert into Caipu (c_name,c_made,c_image,c_step,c_count,c_step_image,u_id,c_introduce) " +
+                "values (?,?,?,?,?,?,?,?)",new Object[]{cp.getC_name(),cp.getC_made(),cp.getC_image(),cp.getC_step(),cp.getC_count(),cp.getC_step_image()
+                ,cp.getU_id(),cp.getC_introduce()});
+    }
+
+    @Override
+    public List<Caipu> findUserById(Caipu c) {
+        List<Caipu> caipuList = executeQuery("select * from Caipu where c_id=?",new Object[]{c.getC_id()});
+        if(caipuList.size()>0){
+            return caipuList;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Caipu> showCaipu(int pageNum, int pageSize) {
+        return executeQuery("select * from Caipu limit ?,?",new Object[]{(pageNum-1)*pageSize,pageSize});
+    }
+
+//    public static void main(String[] args) {
+//        Caipu c = new Caipu();
+//        c.setC_id(1);
+//        CaipuDaoImpl caipuDao = new CaipuDaoImpl();
+//        System.out.println(caipuDao.findUserById(c).size());
+//    }
 
 }

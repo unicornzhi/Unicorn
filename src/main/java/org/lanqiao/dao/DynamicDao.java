@@ -1,6 +1,7 @@
 package org.lanqiao.dao;
 
 import org.lanqiao.entity.Dynamic;
+import org.lanqiao.entity.User;
 
 import java.util.List;
 
@@ -37,6 +38,13 @@ public interface DynamicDao {
      * @return List<Dynamic>
      */
     public List<Dynamic> showDynamic(int pageNum, int pageSize);
+
+    /**
+     * 后台用于查询
+     * @param
+     * @return List<Dynamic>
+     */
+    public List<Dynamic> findUserById(Dynamic d);
 
 
 

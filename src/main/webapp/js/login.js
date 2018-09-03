@@ -2,13 +2,12 @@ $(function () {
 
     // 登录
     $("button").click(function () {
-
         $.post("/checkLockServlet",{"username":$("input[name='username']").val(),
-                "password":$("input[name='password']").val(),
-                "phone":$("input[name='phone']").val()
+                "password":$("input[name='password']").val()
             },
             function (ret) {
                 if(ret){
+                    layer.msg("登录成功",{time:3000});
                     layer.close(layer.index);
                     window.parent.location.reload();
                 }else{
@@ -62,24 +61,5 @@ $(function () {
         }
 
     });
-    // 验证手机号码
-    $("input[name='phone']").keyup(function () {
-        var regex =/^\d{11}$/;
-        var phone = $(this).val();
-        if(!regex.test(phone)){
-            layer.tips('手机号码必须为11位', $(this), {
-                tips: [1, 'red'],
-                time:4000
-            });
-        }else{
-            layer.closeAll('tips');
-        }
-    })
-
-
-
-
-
-
 
 });

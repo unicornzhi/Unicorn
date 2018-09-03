@@ -19,12 +19,19 @@ import java.util.List;
 @WebServlet("/showAllUserInfoServlet")
 public class showAllUserInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
             String num = request.getParameter("num");
             List<User> list = new UserDaoImpl().showAllUserInfo(Integer.parseInt(num), 10);
 
+            int UserCount = new UserDaoImpl().CountUser();
+
             JsonConfig jsonConfig = new JsonConfig();
             jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
+
             JSONArray aug = JSONArray.fromObject(list,jsonConfig);
+
+            aug.add(UserCount);
 
             PrintWriter out = response.getWriter();
             out.print(aug.toString());

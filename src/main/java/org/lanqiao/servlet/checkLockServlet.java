@@ -16,23 +16,14 @@ public class checkLockServlet extends HttpServlet {
         // 1.获取表单数据
         String username =request.getParameter("username");
         String password =request.getParameter("password");
-        String phone = request.getParameter("phone");
-
-
 
         //2.封装数据
         User user = new User();
         user.setU_name(username);
         user.setU_password(password);
-        user.setU_phone(phone);
+
         //3.dao
         User retUser = new UserDaoImpl().checkLockUser(user);
-
-        if(username.equals("admin")){
-
-        }
-
-
 
         if(retUser!=null){
             request.getSession().setAttribute("sessionkey",retUser);

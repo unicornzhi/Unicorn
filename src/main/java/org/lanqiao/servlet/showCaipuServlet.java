@@ -22,11 +22,11 @@ public class showCaipuServlet extends HttpServlet {
         String num = request.getParameter("num");
         List<Caipu> list  = new CaipuDaoImpl().showCaipu(Integer.parseInt(num), 10);
 
-
+        int CaipuCount = new CaipuDaoImpl().getAllCaipuCount();
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
         JSONArray listarray = JSONArray.fromObject(list,jsonConfig);
-
+        listarray.add(CaipuCount);
         PrintWriter out = response.getWriter();
         out.print(listarray.toString());
         out.flush();

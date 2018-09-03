@@ -15,8 +15,6 @@ $(function () {
 
     });
     // 点击登录，显示登录弹窗
-
-
     $(".user-action a:eq(0)").click(function () {
         alert("登录");
         layer.open({

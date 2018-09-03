@@ -3,6 +3,9 @@ package org.lanqiao.dao.impl;
 import org.lanqiao.dao.BaseDao;
 import org.lanqiao.dao.DynamicDao;
 import org.lanqiao.entity.Dynamic;
+import org.lanqiao.entity.User;
+
+import java.util.List;
 
 public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
     /**
@@ -11,11 +14,11 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
      * @param dynamic
      * @return
      */
-    @Override
-    public int createDynamic(Dynamic dynamic){
-        return    executeUpdate("insert into Dynamic(d_image,d_xinde,u_id,c_id) VALUES(?,?,?,?)",
-                    new Object[]{dynamic.getD_image(),dynamic.getD_xinde(),dynamic.getU_id(),dynamic.getC_id()});
-    }
+//    @Override
+//    public int createDynamic(Dynamic dynamic){
+//        return    executeUpdate("insert into Dynamic(d_image,d_xinde,u_id,c_id) VALUES(?,?,?,?)",
+//                    new Object[]{dynamic.getD_image(),dynamic.getD_xinde(),dynamic.getU_id(),dynamic.getC_id()});
+//    }
     /**
      * 刘志辉
      * 功能：查询动态所有记录条数
@@ -24,4 +27,45 @@ public class DynamicDaoImpl extends BaseDao<Dynamic> implements DynamicDao {
      return  getRecordCount("select count(*) from Dynamic");
     }
 
+    @Override
+    public int addDynamic(Dynamic d) {
+        return 0;
+    }
+
+    @Override
+    public int updateDynamic(Dynamic d) {
+        return 0;
+    }
+
+    @Override
+    public List<Dynamic> showDynamic(int pageNum, int pageSize) {
+        return executeQuery("select * from Dynamic limit ?,?",new Object[]{(pageNum-1)*pageSize,pageSize});
+    }
+
+    @Override
+    public List<Dynamic> findUserById(Dynamic d) {
+        List<Dynamic> dynamicList = executeQuery("select * from Dynamic  where d_id=?",new Object[]{d.getD_id()});
+        if(dynamicList.size()>0){
+            return dynamicList;
+        }
+        return null;
+    }
+
+    @Override
+    public int deleteDynamic(Dynamic d) {
+        return 0;
+    }
+
+    @Override
+    public int getDynamicCount() {
+        return 0;
+    }
+
+
+//    public static void main(String[] args) {
+//        Dynamic d = new Dynamic();
+//        d.setD_id(1);
+//        DynamicDaoImpl dynamicDao = new DynamicDaoImpl();
+//        System.out.println(dynamicDao.findUserById(d).size());
+//    }
 }

@@ -16,6 +16,7 @@ public class characterFilter implements Filter {
         //前驱操作
         req.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
+        System.out.println("filter");
         chain.doFilter(req, resp);
         //后继操作
 

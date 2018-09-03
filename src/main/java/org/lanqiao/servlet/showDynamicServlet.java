@@ -21,11 +21,13 @@ public class showDynamicServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String num = request.getParameter("num");
         List<Dynamic> list = new DynamicDaoImpl().showDynamic(Integer.parseInt(num),10);
+        int CountDynamic = new DynamicDaoImpl().getAllDynamicCount();
 
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
 
         JSONArray listArray = JSONArray.fromObject(list,jsonConfig);
+        listArray.add(CountDynamic);
         PrintWriter out = response.getWriter();
         out.print(listArray.toString());
         out.flush();

@@ -30,8 +30,10 @@ public interface CaipuDao {
      */
     public List<Caipu> findCaipuByfield(Caipu cp);
 
-
-
+    /**
+     * 删除菜谱
+     */
+    public int deleteCaipu(Caipu caipu);
 
 
     /**
@@ -39,15 +41,30 @@ public interface CaipuDao {
      * 关键字模糊查询菜名
      * 通过菜名精确查询
      *王三芝
-     * @param c_name
+     * @param
      * @return
      */
     public List<Caipu> searchC_nameQuery(String keyword);
 
 
+    /**
+     * 后台用于添加菜谱
+     */
+    public int addCaipu(Caipu cp);
+
+    /**
+     * 后台根据ID查询
+     */
+
+    public List<Caipu> findUserById(Caipu c);
 
 
 
-
+    /**
+     * 后台显示分页（王咸林）
+     * @param pageNum,pageSize
+     * @return
+     */
+    public List<Caipu> showCaipu(int pageNum,int pageSize);
 
 }
